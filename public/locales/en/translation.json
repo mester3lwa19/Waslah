@@ -1,0 +1,20 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "documents": "Document Verification",
+    "projects": "Projects"
+  },
+  "footer": {
+    "location": "Address",
+    "locationDescription": "Salah Al-Din Al-Ayyubi Road, Jarir, Riyadh 12837, Saudi Arabia",
+    "phone": "Phone",
+    "phoneDescription": "+966 59 377 1993",
+    "whatsapp": "WhatsApp",
+    "whatsappDescription": "+966 59 377 1993",
+    "email": "Email",
+    "emailDescription": "Shahat@waslahmimar",
+    "rights": "© All rights reserved. All rights belong to Waslah Mimbar."
+  }
+}

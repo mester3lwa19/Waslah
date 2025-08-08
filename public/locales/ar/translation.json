@@ -1,0 +1,20 @@
+{
+  "navbar": {
+    "home": "الرئيسية",
+    "about": "من نحن",
+    "services": "خدماتنا",
+    "documents": "التحقق من المستندات",
+    "projects": "مشاريعنا"
+  },
+  "footer": {
+    "location": "العنوان",
+    "locationDescription": "طريق صلاح الدين الأيوبي، جرير، الرياض 12837، المملكة العربية السعودية",
+    "phone": "الهاتف",
+    "phoneDescription": "+966 59 377 1993",
+    "whatsapp": "واتساب",
+    "whatsappDescription": "+966 59 377 1993",
+    "email": "البريد الإلكتروني",
+    "emailDescription": "Shahat@waslahmimar",
+    "rights": "© جميع الحقوق محفوظة جميع الحقوق محفوظة لدى  الوصلة للمعامر."
+  }
+}
