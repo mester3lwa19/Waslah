@@ -6,6 +6,17 @@
     "documents": "Document Verification",
     "projects": "Projects"
   },
+  "homePage": {
+    "heroTitle": "Transform your vision into a real project with quality, reliability, and on-time delivery",
+    "heroProjectsTitle": "More than",
+    "heroProjectsCount": "120 projects",
+    "heroVisionTitle": "We work towards Saudi Arabia's Vision",
+    "heroVisionYear": "2030",
+    "heroClientsTitle": "We've worked with more than",
+    "heroClientsCount": "10 major companies",
+    "whoWeAreTitle": "Who We Are",
+    "whoWeAreDescription": "Wasla Architecture & Contracting is a leading company specializing in innovative architectural solutions and high-quality general contracting. We meet our clients' needs by professionally executing diverse projects. Our team consists of experts in engineering, construction, and project management. We guarantee project completion on time and within budget, while always striving to achieve the highest levels of quality and safety. We are committed to exceeding our clients' expectations and ensuring their complete satisfaction."
+  },
   "footer": {
     "location": "Address",
     "locationDescription": "Salah Al-Din Al-Ayyubi Road, Jarir, Riyadh 12837, Saudi Arabia",

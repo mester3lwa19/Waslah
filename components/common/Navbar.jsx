@@ -2,17 +2,19 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import i18n from "i18next";
 import Cookies from "js-cookie";
 import React from "react";
 import Image from "next/image";
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
+
 export default function Navbar() {
   const { t } = useTranslation();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const lng = Cookies.get("i18next") || "en";
 
   const navLinks = [
@@ -23,14 +25,26 @@ export default function Navbar() {
     { href: "/projects", label: t("navbar.projects") },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <nav className="  fixed top-0 left-0 w-full z-50 bg-transparent text-white">
+      <nav
+        className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
+          scrolled ? "bg-white text-black shadow-md" : "bg-transparent text-white"
+        }`}
+      >
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             {/* Logo */}
             <div className="flex-shrink-0 text-lg font-bold">
-              <Image src="/imgs/logo.svg" width={100} height={50} alt="Logo" />
+              <Image src={scrolled ? "/imgs/logoBlue.svg" : "/imgs/logo.svg"} width={100} height={50} alt="Logo" />
             </div>
 
             {/* Desktop Menu */}
@@ -43,39 +57,44 @@ export default function Navbar() {
                     pathname === link.href
                       ? "gradient-text text-xl font-bold"
                       : "gradient-hover text-xl"
-                  } transition-colors duration-200`}
+                  } transition-colors duration-200 ${
+                    scrolled ? "text-black hover:text-gray-700" : ""
+                  }`}
                 >
                   {link.label}
                 </Link>
               ))}
-              {
-                /* Language Switcher */
-                lng === "en" ? (
-                  <button
-                    onClick={() => i18n.changeLanguage("ar")}
-                    className="text-xl text-white hover:text-gray-300"
-                  >
-                    العربية
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => i18n.changeLanguage("en")}
-                    className="text-xl text-white hover:text-gray-300"
-                  >
-                    English
-                  </button>
-                )
-              }
+              {lng === "en" ? (
+                <button
+                  onClick={() => i18n.changeLanguage("ar")}
+                  className={`text-xl hover:text-gray-300 ${
+                    scrolled ? "text-black hover:text-gray-700" : "text-white"
+                  }`}
+                >
+                  العربية
+                </button>
+              ) : (
+                <button
+                  onClick={() => i18n.changeLanguage("en")}
+                  className={`text-xl hover:text-gray-300 ${
+                    scrolled ? "text-black hover:text-gray-700" : "text-white"
+                  }`}
+                >
+                  English
+                </button>
+              )}
             </div>
+
             {/* Mobile Menu Button */}
             <div className="md:hidden">
               <button onClick={() => setIsOpen(!isOpen)}>
-                <MenuIcon className="text-white" />
+                <MenuIcon className={scrolled ? "text-black" : "text-white"} />
               </button>
             </div>
           </div>
         </div>
       </nav>
+
       {/* Overlay */}
       {isOpen && (
         <div
@@ -110,25 +129,22 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <div className="flex ">
-            {
-              /* Language Switcher */
-              lng === "en" ? (
-                <button
-                  onClick={() => i18n.changeLanguage("ar")}
-                  className="text-white text-xl px-3 py-2 hover:text-gray-300"
-                >
-                  العربية
-                </button>
-              ) : (
-                <button
-                  onClick={() => i18n.changeLanguage("en")}
-                  className="text-white text-xl px-3 py-2 hover:text-gray-300"
-                >
-                  English
-                </button>
-              )
-            }
+          <div className="flex">
+            {lng === "en" ? (
+              <button
+                onClick={() => i18n.changeLanguage("ar")}
+                className="text-white text-xl px-3 py-2 hover:text-gray-300"
+              >
+                العربية
+              </button>
+            ) : (
+              <button
+                onClick={() => i18n.changeLanguage("en")}
+                className="text-white text-xl px-3 py-2 hover:text-gray-300"
+              >
+                English
+              </button>
+            )}
           </div>
         </div>
       </div>

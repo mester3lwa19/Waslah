@@ -71,7 +71,9 @@
     background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
   }
-
+  .section-bg {
+    background:#FAF7F2 !important;
+  }
   /* Error colors */
   .text-error-25 { color: var(--color-error-25) !important; }
   .text-error-50 { color: var(--color-error-50) !important; }

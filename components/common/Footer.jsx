@@ -24,32 +24,32 @@ function Footer() {
 
           <div className="details-items grid grid-cols-1 sm:grid-cols-2 lg:flex lg:gap-10 gap-6">
             <div className="detail-item flex flex-col gap-2">
-              <h3 className="text-lg font-bold">{t("footer.location")}</h3>
-              <p className="text-sm flex gap-1 text-primary-25">
+              <h3 className="text-2xl font-bold">{t("footer.location")}</h3>
+              <p className="text-base flex gap-1 text-primary-25">
                 <LocationOnIcon fontSize="small" />
                 {t("footer.locationDescription")}
               </p>
             </div>
 
             <div className="detail-item flex flex-col gap-2">
-              <h3 className="text-lg font-bold">{t("footer.phone")}</h3>
-              <p className="text-sm flex gap-1 text-primary-25">
+              <h3 className="text-2xl font-bold">{t("footer.phone")}</h3>
+              <p className="text-base flex gap-1 text-primary-25">
                 <PhoneIcon fontSize="small" />
                 {t("footer.phoneDescription")}
               </p>
             </div>
 
             <div className="detail-item flex flex-col gap-2">
-              <h3 className="text-lg font-bold">{t("footer.whatsapp")}</h3>
-              <p className="text-sm flex gap-1 text-primary-25">
+              <h3 className="text-2xl font-bold">{t("footer.whatsapp")}</h3>
+              <p className="text-base flex gap-1 text-primary-25">
                 <WhatsAppIcon fontSize="small" />
                 {t("footer.whatsappDescription")}
               </p>
             </div>
 
             <div className="detail-item flex flex-col gap-2">
-              <h3 className="text-lg font-bold">{t("footer.email")}</h3>
-              <p className="text-sm flex gap-1 text-primary-25">
+              <h3 className="text-2xl font-bold">{t("footer.email")}</h3>
+              <p className="text-base flex gap-1 text-primary-25">
                 <EmailIcon fontSize="small" />
                 {t("footer.emailDescription")}
               </p>
