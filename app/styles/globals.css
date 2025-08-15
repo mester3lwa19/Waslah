@@ -7,7 +7,35 @@
 body {
   font-family: "Zain", Helvetica, sans-serif;
 }
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 3));
+  }
+}
 
+.animate-scroll-logos {
+  animation: scroll-logos 5s linear infinite;
+}
+
+.animate-scroll-logos:hover {
+  animation-play-state: paused;
+}
+@keyframes scrollLeft {
+  to {
+    left: -200px;
+  }
+}
+
+.logo-slider-item {
+  animation-name: scrollLeft;
+}
+
+.group:hover .logo-slider-item {
+  animation-play-state: paused;
+}
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
