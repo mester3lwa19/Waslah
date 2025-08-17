@@ -9,6 +9,7 @@ import LogoSlider from "@/components/common/LogoSlider";
 import VerificationSlider from "@/components/common/VerificationSlider";
 import ProjectsSlider from "@/components/common/ProjectsSlider";
 import ServicesSlider from "@/components/common/ServicesSlider";
+import Form from "@/components/Form";
 export default function Home() {
   const { t } = useTranslation();
   const lng = Cookies.get("i18next") || "en";
@@ -191,12 +192,13 @@ export default function Home() {
           {t("homePage.engineeringDesign")}
         </span>
       </section>
-      <section className="form section-bg sm:py-16 py-10">
+      <section className="form section-bg sm:py-16 py-10 my-10">
         <div className="container flex flex-col justify-center items-start mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <SectionHeading
             lng={lng}
-            sectionTitle={t("homePage.visionSectionTitle")}
+            sectionTitle={t("homePage.contact.title")}
           />
+          <Form/>
         </div>
       </section>
     </>

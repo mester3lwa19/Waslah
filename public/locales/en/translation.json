@@ -2,30 +2,157 @@
   "navbar": {
     "home": "Home",
     "about": "About Us",
-    "services": "Services",
+    "services": "Our Services",
     "documents": "Document Verification",
-    "projects": "Projects"
+    "projects": "Our Projects"
   },
   "homePage": {
     "heroTitle": "Transform your vision into a real project with quality, reliability, and on-time delivery",
-    "heroProjectsTitle": "More than",
+    "heroProjectsTitle": "Over",
     "heroProjectsCount": "120 projects",
     "heroVisionTitle": "We work towards Saudi Arabia's Vision",
     "heroVisionYear": "2030",
     "heroClientsTitle": "We've worked with more than",
     "heroClientsCount": "10 major companies",
-    "whoWeAreTitle": "Who We Are",
-    "whoWeAreDescription": "Wasla Architecture & Contracting is a leading company specializing in innovative architectural solutions and high-quality general contracting. We meet our clients' needs by professionally executing diverse projects. Our team consists of experts in engineering, construction, and project management. We guarantee project completion on time and within budget, while always striving to achieve the highest levels of quality and safety. We are committed to exceeding our clients' expectations and ensuring their complete satisfaction."
+    "whoWeAreTitle": "About Us",
+    "whoWeAreDescription": "Waslah Mimari Contracting Company is a leading and specialized company providing innovative architectural solutions and high-quality general contracting services. We meet our clients' needs by executing diverse projects with professionalism. Our team consists of experts in engineering, construction, and project management. We guarantee project completion on time and within budget while maintaining the highest levels of quality and safety. We strive to achieve client satisfaction and exceed expectations.",
+    "companiesWeWorkedWithTitle": "Companies We've Worked With",
+    "verified": "We are certified by",
+    "projectsTitle": "Our Projects",
+    "projectsSubTitle": "To view all our projects, download them from here",
+    "visionSectionTitle": "Our Mission and Vision",
+    "visionTitle": "Our Vision",
+    "visionDescription": "In executing our projects, we rely on an integrated system containing all specializations distributed across main departments with the required quality level. We continuously develop our services and work to serve projects and complete them on time while training our workforce according to the highest quality standards to align with Saudi Vision 2030 and contribute to its achievement.",
+    "missionTitle": "Our Mission",
+    "missionDescription": "General contracting and construction works for buildings. We constantly strive to build the high trust that clients rely on for all their projects. We aim to always be our clients' trusted partner while utilizing global technological developments to ensure execution quality and timely delivery.",
+    "engineeringDesign": "Engineering Design",
+    "contact": {
+      "title": "Contact Us",
+      "fields": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone Number",
+        "address": "Address",
+        "message": "Leave us a message"
+      },
+      "placeholders": {
+        "name": "Enter your name",
+        "email": "example@gmail.com",
+        "phone": "01111111111",
+        "address": "Alexandria, Egypt",
+        "message": "Write your message here..."
+      },
+      "buttons": {
+        "send": "Send Message",
+        "sending": "Sending..."
+      },
+      "errors": {
+        "name": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Invalid email format",
+        "phone": "Phone number is required",
+        "address": "Address is required",
+        "message": "Message is required"
+      },
+      "emailSubject": "New message from the website",
+      "status": {
+        "openedMail": "Email application opened. Please send your message.",
+        "error": "An error occurred. Please try again."
+      },
+      "errorMessage":"Failed to send message",
+      "successMessage":"Message send successfully"
+    
+    }
   },
+  "projectsData": [
+    {
+      "src": "/projects/Almunibond.png",
+      "title": "Cladding factory consisting of ground floor + administrative building with ground floor and basement",
+      "location": "Riyadh Industrial City, Riyadh",
+      "size": "10,000 m²",
+      "type": "Factory",
+      "delivery": "Turnkey delivery"
+    },
+    {
+      "src": "/projects/Etoile.png",
+      "title": "Administrative building with two floors, production hall, and packaging area",
+      "location": "Riyadh Industrial City, Riyadh",
+      "size": "1,200 m²",
+      "type": "Food factory"
+    },
+    {
+      "src": "/projects/Bawazir.png",
+      "title": "Factory and administrative building with ground and first floors",
+      "location": "Al-Bawwabah Industrial City, Riyadh",
+      "size": "5,000 m²",
+      "type": "Plastic factory",
+      "delivery": "Turnkey delivery"
+    },
+    {
+      "src": "/projects/Omsteel.png",
+      "title": "Administrative building with one floor and factory",
+      "location": "Al-Bawwabah Industrial City, Riyadh",
+      "size": "11,537 m²",
+      "type": "Factory",
+      "delivery": "Turnkey delivery"
+    },
+    {
+      "src": "/projects/alka.png",
+      "title": "Residential building with 4 floors and quarter-floor area",
+      "location": "Al-Bawwabah Industrial City, Riyadh",
+      "size": "1,200 m²",
+      "delivery": "Turnkey delivery"
+    },
+    {
+      "src": "/projects/AlMoases.png",
+      "title": "Three separate multi-purpose warehouses with different hazard levels",
+      "location": "Al-Bawwabah Industrial City, Riyadh",
+      "size": "6,000 m²",
+      "type": "Warehouse complex",
+      "delivery": "Turnkey delivery"
+    }
+  ],
+  "servicesLogo": [
+    {
+      "src": "/imgs/constructionWorks.svg",
+      "alt": "Construction Works",
+      "title": "Construction Works"
+    },
+    {
+      "src": "/imgs/recordsPreparation.svg",
+      "alt": "Building Finishing Works",
+      "title": "Building Finishing Works"
+    },
+    {
+      "src": "/imgs/electricalWorks.svg",
+      "alt": "Electrical Works",
+      "title": "Electrical Works"
+    },
+    {
+      "src": "/imgs/mechanicalWorks.svg",
+      "alt": "Mechanical Works",
+      "title": "Mechanical Works"
+    },
+    {
+      "src": "/imgs/infrastructure.svg",
+      "alt": "Infrastructure",
+      "title": "Infrastructure"
+    },
+    {
+      "src": "/imgs/specializedConstruction.svg",
+      "alt": "Specialized Construction",
+      "title": "Specialized Construction"
+    }
+  ],
   "footer": {
     "location": "Address",
-    "locationDescription": "Salah Al-Din Al-Ayyubi Road, Jarir, Riyadh 12837, Saudi Arabia",
+    "locationDescription": "Salah Al-Din Al-Ayyubi Road, Jarir, Riyadh 12837, Kingdom of Saudi Arabia",
     "phone": "Phone",
     "phoneDescription": "+966 59 377 1993",
     "whatsapp": "WhatsApp",
     "whatsappDescription": "+966 59 377 1993",
     "email": "Email",
     "emailDescription": "Shahat@waslahmimar",
-    "rights": "© All rights reserved. All rights belong to Waslah Mimbar."
+    "rights": "© All rights reserved. All rights belong to Waslah Mimari Contracting."
   }
 }
