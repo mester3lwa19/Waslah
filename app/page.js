@@ -171,7 +171,6 @@ export default function Home() {
         <div className="container flex flex-col justify-center items-start mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <SectionHeading lng={lng} sectionTitle={t("homePage.verified")} />
           <ServicesSlider logos={servicesLogos} />
-          <p></p>
         </div>
       </section>
       <section className="engineering flex flex-col justify-between container mx-auto design">

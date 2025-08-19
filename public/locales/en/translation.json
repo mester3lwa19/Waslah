@@ -7,15 +7,15 @@
     "projects": "Our Projects"
   },
   "homePage": {
-    "heroTitle": "Transform your vision into a real project with quality, reliability, and on-time delivery",
-    "heroProjectsTitle": "Over",
+    "heroTitle": "Transform your vision into a real project with quality, reliability and on-time delivery",
+    "heroProjectsTitle": "More than",
     "heroProjectsCount": "120 projects",
     "heroVisionTitle": "We work towards Saudi Arabia's Vision",
     "heroVisionYear": "2030",
     "heroClientsTitle": "We've worked with more than",
     "heroClientsCount": "10 major companies",
     "whoWeAreTitle": "About Us",
-    "whoWeAreDescription": "Waslah Mimari Contracting Company is a leading and specialized company providing innovative architectural solutions and high-quality general contracting services. We meet our clients' needs by executing diverse projects with professionalism. Our team consists of experts in engineering, construction, and project management. We guarantee project completion on time and within budget while maintaining the highest levels of quality and safety. We strive to achieve client satisfaction and exceed expectations.",
+    "whoWeAreDescription": "Waslah Mimari Contracting Company is a leading specialized company providing innovative architectural solutions and high-quality general contracting services. We meet our clients' needs by executing diverse projects with complete professionalism. Our team consists of experts in engineering, construction and project management. We guarantee project completion on time and within budget while maintaining the highest levels of quality and safety. We continuously strive to achieve client satisfaction and exceed expectations.",
     "companiesWeWorkedWithTitle": "Companies We've Worked With",
     "verified": "We are certified by",
     "projectsTitle": "Our Projects",
@@ -59,9 +59,8 @@
         "openedMail": "Email application opened. Please send your message.",
         "error": "An error occurred. Please try again."
       },
-      "errorMessage":"Failed to send message",
-      "successMessage":"Message send successfully"
-    
+      "errorMessage": "Failed to send message",
+      "successMessage": "Message sent successfully"
     }
   },
   "projectsData": [
@@ -75,7 +74,7 @@
     },
     {
       "src": "/projects/Etoile.png",
-      "title": "Administrative building with two floors, production hall, and packaging area",
+      "title": "Administrative building with two floors, production hall and packaging area",
       "location": "Riyadh Industrial City, Riyadh",
       "size": "1,200 m²",
       "type": "Food factory"
@@ -112,38 +111,76 @@
       "delivery": "Turnkey delivery"
     }
   ],
+  "services": {
+    "title": "Our Services",
+    "description": "At Waslah Mimari Contracting, we provide a comprehensive range of engineering and execution services including architectural, structural, electrical and mechanical designs, implementation of industrial, residential, commercial and warehouse projects, in addition to preparing executive drawings, technical specifications and schedules. We also provide complete engineering supervision and project management according to the highest quality standards, with project implementation and delivery through turnkey systems ensuring speed of completion and execution accuracy. Our specialized engineering team works to execute each project professionally and with the highest commitment to quality and timelines."
+  },
   "servicesLogo": [
     {
       "src": "/imgs/constructionWorks.svg",
       "alt": "Construction Works",
-      "title": "Construction Works"
+      "title": "Construction Works",
+      "description": "We execute all earthworks including rebar and concrete pouring for industrial, commercial and residential buildings. We also supervise the installation of steel buildings and precast structures with high precision ensuring structural safety and stability."
     },
     {
       "src": "/imgs/recordsPreparation.svg",
       "alt": "Building Finishing Works",
-      "title": "Building Finishing Works"
+      "title": "Building Finishing Works",
+      "description": "We provide finishing services for upscale projects including plastering, flooring, false ceiling installation, carpentry, painting and glazing, in addition to ordering and installing furnishings according to the approved design and specifications for each project."
     },
     {
       "src": "/imgs/electricalWorks.svg",
       "alt": "Electrical Works",
-      "title": "Electrical Works"
+      "title": "Electrical Works",
+      "description": "We provide complete electrical works including power distribution, lighting systems, grounding systems, and low voltage systems implementation, ensuring operational efficiency and electrical system safety."
     },
     {
       "src": "/imgs/mechanicalWorks.svg",
       "alt": "Mechanical Works",
-      "title": "Mechanical Works"
+      "title": "Mechanical Works",
+      "description": "We specialize in designing and implementing ventilation and air conditioning systems, in addition to water supply and drainage works, and firefighting systems installation according to approved engineering standards."
     },
     {
       "src": "/imgs/infrastructure.svg",
       "alt": "Infrastructure",
-      "title": "Infrastructure"
+      "title": "Infrastructure",
+      "description": "We implement infrastructure works including building stations, installing pipes and underground tanks, road paving and asphalting, and lighting poles installation, to ensure site readiness for construction and operation."
     },
     {
       "src": "/imgs/specializedConstruction.svg",
       "alt": "Specialized Construction",
-      "title": "Specialized Construction"
+      "title": "Specialized Construction",
+      "description": "We provide specially designed building solutions for specialized purposes like cold stores, refrigerators, fortified rooms, and warehouses with high vertical storage systems, focusing on the technical specifications for each type of these facilities."
+    },
+    {
+      "src": "/imgs/engineeringDesign.svg",
+      "alt": "Engineering Design",
+      "title": "Engineering Design",
+      "description": "An international technical support office in Cairo consisting of an engineering team headed by Dr. Mohamed El-Shahed to prepare design drawings, executive drawings, technical specifications, schedules and all necessary documents to ensure quality achievement."
     }
   ],
+  "documents": {
+    "title": "Our Documents",
+    "description": "Waslah Mimari Contracting is committed to providing all official documents that reflect its professionalism and commitment to quality standards. These documents include licenses and commercial records, classification and qualification certificates, quality certificates, along with contracts, technical offers, executive drawings and technical supervision reports. We also periodically update our documents to comply with the requirements of official authorities in the Kingdom. Concerned parties can request to view these documents by contacting our specialized team through the 'Contact Us' page.",
+    "docs": [
+      {
+        "title": "Commercial Registration",
+        "description": "The official document proving the company's registration with the Ministry of Commerce in Saudi Arabia, including the registration number, commercial activity, issue and expiry dates.",
+        "file": "/pdfs/commercial.pdf"
+      },
+      {
+        "title": "Tax Certificate",
+        "description": "Certifies that Waslah Mimari Contracting is registered with the General Authority of Zakat and Tax in Saudi Arabia.",
+        "file": "/pdfs/tax.pdf"
+      },
+      {
+        "title": "National Address",
+        "description": "The official location of Waslah Mimari Contracting according to the approved national address: P.O. Box - Riyadh - Industrial City - Second Gate - Plot No. 344.",
+        "file": "/pdfs/address.pdf"
+      }
+    ],
+    "download": "Download"
+  },
   "footer": {
     "location": "Address",
     "locationDescription": "Salah Al-Din Al-Ayyubi Road, Jarir, Riyadh 12837, Kingdom of Saudi Arabia",
