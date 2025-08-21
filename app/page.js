@@ -129,9 +129,9 @@ export default function Home() {
               {t("homePage.projectsSubTitle")}
             </p>
             <a
-              href="/sample-document.pdf"
-              download="sample-document.pdf"
-              className="inline-block  font-semibold py-3 px-6  transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50"
+              href={"/pdfs/profile.pdf"}
+              download
+              className="inline-block  font-semibold py-3 px-6  transition duration-300 ease-in-out transform hover:scale-110 focus:outline-non"
             >
               <img src="/icons/download.svg"></img>
             </a>
@@ -197,7 +197,7 @@ export default function Home() {
             lng={lng}
             sectionTitle={t("homePage.contact.title")}
           />
-          <Form/>
+          <Form />
         </div>
       </section>
     </>

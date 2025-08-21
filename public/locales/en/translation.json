@@ -3,28 +3,28 @@
     "home": "Home",
     "about": "About Us",
     "services": "Our Services",
-    "documents": "Document Verification",
+    "documents": "Verify Documents",
     "projects": "Our Projects"
   },
   "homePage": {
-    "heroTitle": "Transform your vision into a real project with quality, reliability and on-time delivery",
-    "heroProjectsTitle": "More than",
-    "heroProjectsCount": "120 projects",
-    "heroVisionTitle": "We work towards Saudi Arabia's Vision",
+    "heroTitle": "Transform Your Vision into a Real Project with Quality, Reliability, and On-Time Delivery",
+    "heroProjectsTitle": "More Than",
+    "heroProjectsCount": "120 Projects",
+    "heroVisionTitle": "Working Towards Saudi Arabia's Vision",
     "heroVisionYear": "2030",
-    "heroClientsTitle": "We've worked with more than",
-    "heroClientsCount": "10 major companies",
-    "whoWeAreTitle": "About Us",
-    "whoWeAreDescription": "Waslah Mimari Contracting Company is a leading specialized company providing innovative architectural solutions and high-quality general contracting services. We meet our clients' needs by executing diverse projects with complete professionalism. Our team consists of experts in engineering, construction and project management. We guarantee project completion on time and within budget while maintaining the highest levels of quality and safety. We continuously strive to achieve client satisfaction and exceed expectations.",
-    "companiesWeWorkedWithTitle": "Companies We've Worked With",
-    "verified": "We are certified by",
+    "heroClientsTitle": "We Have Worked With More Than",
+    "heroClientsCount": "10 Major Companies",
+    "whoWeAreTitle": "Who We Are",
+    "whoWeAreDescription": "Waslah Mi'mar Contracting Company is a leading and specialized company in providing innovative and high-quality architectural solutions and general contracting. We work to meet our clients' needs by executing diverse projects with professionalism and expertise. Our team consists of experts in the fields of engineering, construction, and project management. We guarantee project execution on time and within a suitable budget, always striving to achieve the highest levels of quality and safety. We aim to achieve client satisfaction and exceed their expectations.",
+    "companiesWeWorkedWithTitle": "Companies We Have Worked With",
+    "verified": "We Are Certified By",
     "projectsTitle": "Our Projects",
-    "projectsSubTitle": "To view all our projects, download them from here",
+    "projectsSubTitle": "To view all our projects, download them from here ",
     "visionSectionTitle": "Our Mission and Vision",
     "visionTitle": "Our Vision",
-    "visionDescription": "In executing our projects, we rely on an integrated system containing all specializations distributed across main departments with the required quality level. We continuously develop our services and work to serve projects and complete them on time while training our workforce according to the highest quality standards to align with Saudi Vision 2030 and contribute to its achievement.",
+    "visionDescription": "In the execution of our projects, we rely on an integrated system containing all specializations distributed across main departments and at the required level of quality, while continuously developing our services and works. This is in order to serve the projects and complete them on time, always with the training of the work team according to the highest quality standards to keep pace with the Kingdom's Vision 2030 and to be a contributing hand in its achievement.",
     "missionTitle": "Our Mission",
-    "missionDescription": "General contracting and construction works for buildings. We constantly strive to build the high trust that clients rely on for all their projects. We aim to always be our clients' trusted partner while utilizing global technological developments to ensure execution quality and timely delivery.",
+    "missionDescription": "General contracting and construction works for buildings, where we aspire to always be the high-trust entity that clients turn to for the execution of all their projects. We aim to always be a trusted partner for clients, leveraging global technological developments to ensure execution quality and fast delivery for our clients.",
     "engineeringDesign": "Engineering Design",
     "contact": {
       "title": "Contact Us",
@@ -43,153 +43,203 @@
         "message": "Write your message here..."
       },
       "buttons": {
-        "send": "Send Message",
+        "send": "Send Your Message",
         "sending": "Sending..."
       },
       "errors": {
         "name": "Name is required",
         "emailRequired": "Email is required",
-        "emailInvalid": "Invalid email format",
+        "emailInvalid": "Email is invalid",
         "phone": "Phone number is required",
         "address": "Address is required",
         "message": "Message is required"
       },
-      "emailSubject": "New message from the website",
+      "emailSubject": "New Message from the Website",
       "status": {
-        "openedMail": "Email application opened. Please send your message.",
+        "openedMail": "Email application opened. Please send the message.",
         "error": "An error occurred. Please try again."
       },
-      "errorMessage": "Failed to send message",
+      "errorMessage": "Failed to send the message",
       "successMessage": "Message sent successfully"
     }
   },
   "projectsData": [
     {
       "src": "/projects/Almunibond.png",
-      "title": "Cladding factory consisting of ground floor + administrative building with ground floor and basement",
+      "alt": "Almunibond",
+      "title": "Cladding factory consisting of a ground floor + an administrative building consisting of a ground floor and a basement",
       "location": "Riyadh Industrial City, Riyadh",
-      "size": "10,000 m²",
+      "size": "10000 m²",
       "type": "Factory",
-      "delivery": "Turnkey delivery"
+      "delivery": "Turnkey Delivery",
+      "logo": "/logos/Aluminbond.svg"
     },
     {
       "src": "/projects/Etoile.png",
-      "title": "Administrative building with two floors, production hall and packaging area",
+      "alt": "Etoile",
+      "title": "Administrative building consisting of two floors, a production hall, and a packaging area",
       "location": "Riyadh Industrial City, Riyadh",
-      "size": "1,200 m²",
-      "type": "Food factory"
+      "size": "1200 m²",
+      "type": "Food Factory",
+      "delivery": "Factory Rehabilitation",
+      "logo": "/logos/Etoile.svg"
     },
     {
       "src": "/projects/Bawazir.png",
-      "title": "Factory and administrative building with ground and first floors",
+      "alt": "Bawazir",
+      "title": "Factory and administrative building consisting of a ground and first floor",
       "location": "Al-Bawwabah Industrial City, Riyadh",
-      "size": "5,000 m²",
-      "type": "Plastic factory",
-      "delivery": "Turnkey delivery"
+      "size": "5000 m²",
+      "type": "Plastics Factory",
+      "delivery": "Turnkey Delivery",
+      "logo": "/logos/Bawazir.svg"
     },
     {
       "src": "/projects/Omsteel.png",
-      "title": "Administrative building with one floor and factory",
+      "alt": "Omsteel",
+      "title": "Administrative building consisting of one floor and a factory",
       "location": "Al-Bawwabah Industrial City, Riyadh",
-      "size": "11,537 m²",
+      "size": "11537 m²",
       "type": "Factory",
-      "delivery": "Turnkey delivery"
+      "delivery": "Turnkey Delivery",
+      "logo": "/logos/Omsteel.svg"
     },
     {
       "src": "/projects/alka.png",
-      "title": "Residential building with 4 floors and quarter-floor area",
+      "alt": "alka",
+      "title": "Residential building consisting of 4 floors with a quarter-floor area",
       "location": "Al-Bawwabah Industrial City, Riyadh",
-      "size": "1,200 m²",
-      "delivery": "Turnkey delivery"
+      "size": "1200 m²",
+      "type": "Residential Building",
+      "delivery": "Turnkey Delivery",
+      "logo": "/logos/Alka.svg"
     },
     {
       "src": "/projects/AlMoases.png",
-      "title": "Three separate multi-purpose warehouses with different hazard levels",
+      "alt": "AlMoases",
+      "title": "Three separate multi-use warehouses on the plot",
       "location": "Al-Bawwabah Industrial City, Riyadh",
-      "size": "6,000 m²",
-      "type": "Warehouse complex",
-      "delivery": "Turnkey delivery"
+      "size": "6000 m²",
+      "type": "Warehouse Complex",
+      "delivery": "Turnkey Delivery",
+      "logo": "/logos/Almoases.svg"
     }
   ],
   "services": {
     "title": "Our Services",
-    "description": "At Waslah Mimari Contracting, we provide a comprehensive range of engineering and execution services including architectural, structural, electrical and mechanical designs, implementation of industrial, residential, commercial and warehouse projects, in addition to preparing executive drawings, technical specifications and schedules. We also provide complete engineering supervision and project management according to the highest quality standards, with project implementation and delivery through turnkey systems ensuring speed of completion and execution accuracy. Our specialized engineering team works to execute each project professionally and with the highest commitment to quality and timelines."
+    "description": "At Waslah Mi'mar Contracting Company, we provide a comprehensive range of engineering and execution services, including the preparation of architectural, structural, electrical, and mechanical designs, and the execution of industrial, residential, commercial, and warehouse projects. We also prepare execution drawings, technical specifications, and timelines. Additionally, we provide full engineering supervision and project management services according to the highest quality standards, with project execution and delivery on a turnkey basis to ensure speed of completion and accuracy of execution. Our specialized engineering team works to execute each project professionally and with the highest degree of commitment to quality and time."
   },
   "servicesLogo": [
     {
       "src": "/imgs/constructionWorks.svg",
       "alt": "Construction Works",
       "title": "Construction Works",
-      "description": "We execute all earthworks including rebar and concrete pouring for industrial, commercial and residential buildings. We also supervise the installation of steel buildings and precast structures with high precision ensuring structural safety and stability."
+      "description": "We execute all earthworks, including rebar and concrete pouring for industrial, commercial, and residential buildings. We also supervise the installation of steel buildings and precast structures with high precision to ensure the safety and stability of the structural framework."
     },
     {
       "src": "/imgs/recordsPreparation.svg",
-      "alt": "Building Finishing Works",
-      "title": "Building Finishing Works",
-      "description": "We provide finishing services for upscale projects including plastering, flooring, false ceiling installation, carpentry, painting and glazing, in addition to ordering and installing furnishings according to the approved design and specifications for each project."
+      "alt": "Building Finishing and Fit-out",
+      "title": "Building Finishing and Fit-out",
+      "description": "We provide finishing services for high-end projects, including plastering, flooring, suspended ceiling installation, carpentry work, painting and glazing, in addition to ordering and installing furnishings according to the approved design and specifications for each project."
     },
     {
       "src": "/imgs/electricalWorks.svg",
       "alt": "Electrical Works",
       "title": "Electrical Works",
-      "description": "We provide complete electrical works including power distribution, lighting systems, grounding systems, and low voltage systems implementation, ensuring operational efficiency and electrical system safety."
+      "description": "We provide integrated electrical works including power distribution, lighting systems, earthing systems, and the implementation of low-voltage systems, ensuring operational efficiency and electrical system safety."
     },
     {
       "src": "/imgs/mechanicalWorks.svg",
       "alt": "Mechanical Works",
       "title": "Mechanical Works",
-      "description": "We specialize in designing and implementing ventilation and air conditioning systems, in addition to water supply and drainage works, and firefighting systems installation according to approved engineering standards."
+      "description": "We specialize in designing and implementing ventilation and air conditioning systems, in addition to water supply and drainage works, and installing firefighting systems according to approved engineering standards."
     },
     {
       "src": "/imgs/infrastructure.svg",
       "alt": "Infrastructure",
       "title": "Infrastructure",
-      "description": "We implement infrastructure works including building stations, installing pipes and underground tanks, road paving and asphalting, and lighting poles installation, to ensure site readiness for construction and operation."
+      "description": "We execute infrastructure works including building stations, installing pipes and underground tanks, road paving and asphalting, and installing lighting poles, to ensure the site's readiness for construction and operation."
     },
     {
       "src": "/imgs/specializedConstruction.svg",
       "alt": "Specialized Construction",
       "title": "Specialized Construction",
-      "description": "We provide specially designed building solutions for specialized purposes like cold stores, refrigerators, fortified rooms, and warehouses with high vertical storage systems, focusing on the technical specifications for each type of these facilities."
+      "description": "We provide building solutions specifically designed for specialized purposes such as cold stores, refrigerated rooms, fortified rooms, and warehouses with high-rise vertical storage systems, focusing on the technical specifications for each type of these facilities."
     },
     {
       "src": "/imgs/engineeringDesign.svg",
       "alt": "Engineering Design",
       "title": "Engineering Design",
-      "description": "An international technical support office in Cairo consisting of an engineering team headed by Dr. Mohamed El-Shahed to prepare design drawings, executive drawings, technical specifications, schedules and all necessary documents to ensure quality achievement."
+      "description": "An international technical support office in Cairo, consisting of an engineering team headed by Dr. Mohamed El-Shahat, to prepare design drawings, execution drawings, technical specifications, timelines, and all that is necessary to ensure quality achievement."
     }
   ],
   "documents": {
     "title": "Our Documents",
-    "description": "Waslah Mimari Contracting is committed to providing all official documents that reflect its professionalism and commitment to quality standards. These documents include licenses and commercial records, classification and qualification certificates, quality certificates, along with contracts, technical offers, executive drawings and technical supervision reports. We also periodically update our documents to comply with the requirements of official authorities in the Kingdom. Concerned parties can request to view these documents by contacting our specialized team through the 'Contact Us' page.",
+    "description": "Waslah Mi'mar Contracting Company is committed to providing all official documents that reflect its professionalism and commitment to quality standards. These documents include licenses and commercial registrations, classification and qualification certificates, quality certificates, as well as contracts, technical offers, execution drawings, and supervision and technical follow-up reports. We also periodically update our documents to comply with the requirements of official authorities in the Kingdom. Concerned parties can request to view these documents by contacting our specialized team through the 'Contact Us' page.",
     "docs": [
       {
         "title": "Commercial Registration",
-        "description": "The official document proving the company's registration with the Ministry of Commerce in Saudi Arabia, including the registration number, commercial activity, issue and expiry dates.",
+        "description": "The official document proving the company's registration with the Ministry of Commerce in the Kingdom of Saudi Arabia, including the registration number, commercial activity, and issue and expiry dates.",
         "file": "/pdfs/commercial.pdf"
       },
       {
         "title": "Tax Certificate",
-        "description": "Certifies that Waslah Mimari Contracting is registered with the General Authority of Zakat and Tax in Saudi Arabia.",
+        "description": "Certifies that Waslah Mi'mar Contracting Company is registered with the General Authority of Zakat and Tax and Customs in the Kingdom of Saudi Arabia.",
         "file": "/pdfs/tax.pdf"
       },
       {
         "title": "National Address",
-        "description": "The official location of Waslah Mimari Contracting according to the approved national address: P.O. Box - Riyadh - Industrial City - Second Gate - Plot No. 344.",
+        "description": "The official location of Waslah Mi'mar Contracting Company according to the approved national address: P.O. Box - Riyadh - Industrial City - Second Gate - Plot No. 344.",
         "file": "/pdfs/address.pdf"
       }
     ],
     "download": "Download"
   },
+  "projects": {
+    "title": "Our Projects",
+    "description": "At Waslah Mi'mar Contracting Company, we pride ourselves on executing a variety of projects in multiple sectors, including factories of various activities, warehouses, residential and commercial buildings, in addition to real estate development projects in cooperation with official entities such as the Saudi Authority for Industrial Cities and Zones (MODON) and the Riyadh Municipality. Our projects focus on combining quality, timely commitment, and execution accuracy, supported by a specialized engineering team that strives to provide integrated solutions that meet client aspirations and keep pace with the Kingdom's Vision 2030."
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Waslah Mi'mar Contracting Company is a leading and specialized company in providing innovative and high-quality architectural solutions and general contracting. We work to meet our clients' needs by executing diverse projects with professionalism and expertise. Our team consists of experts in the fields of engineering, construction, and project management. We guarantee project execution on time and within a suitable budget, always striving to achieve the highest levels of quality and safety. We aim to achieve client satisfaction and exceed their expectations.",
+    "founder": "Our Founder",
+    "founderDescription": "The founder of Waslah Mi'mar Company is Eng. Mohamed El-Shahat, a specialized engineer who holds a degree in Engineering from Cairo University. He held several senior management positions in contracting companies before founding the company, which he leads with an ambitious vision aimed at pioneering in the field of engineering design and execution.",
+    "items": [
+      {
+        "title": "International Technical Support Office in Cairo",
+        "description": "Consisting of an engineering team headed by Dr. Amr El-Banna to prepare design drawings, execution drawings, technical specifications, control schedules, and all that is necessary for comprehensive quality achievement.",
+        "img": "/icons/office.png",
+        "alt": "office"
+      },
+      {
+        "title": "Contribution to the Industrial Revolution",
+        "description": "We seek to contribute effectively to the industrial revolution in line with the Kingdom's Vision 2030 by participating in the design and execution works for factories and warehouses in all their diverse activities for more than 120 factories in cooperation with the Saudi Authority for Industrial Cities and Zones (MODON) and technology zones.",
+        "img": "/icons/factory.png",
+        "alt": "factory"
+      },
+      {
+        "title": "Contribution to Real Estate Development",
+        "description": "We seek to contribute effectively to real estate development in line with the Kingdom's Vision 2030 by participating in the design and execution works for residential and commercial complexes, all legitimate activities in cooperation with the Riyadh Municipality.",
+        "img": "/icons/hammer.png",
+        "alt": "hammer"
+      },
+      {
+        "title": "Work Team of 35 Members",
+        "description": "Consisting of an engineering team headed by Dr. Amr El-Banna to prepare design drawings, execution drawings, technical specifications, timelines, and all that is necessary to ensure quality achievement.",
+        "img": "/icons/users.png",
+        "alt": "users"
+      }
+    ]
+  },
   "footer": {
     "location": "Address",
-    "locationDescription": "Salah Al-Din Al-Ayyubi Road, Jarir, Riyadh 12837, Kingdom of Saudi Arabia",
+    "locationDescription": "Salahuddin Al-Ayoubi Road, Jarir, Riyadh 12837, Kingdom of Saudi Arabia",
     "phone": "Phone",
     "phoneDescription": "+966 59 377 1993",
     "whatsapp": "WhatsApp",
     "whatsappDescription": "+966 59 377 1993",
     "email": "Email",
     "emailDescription": "Shahat@waslahmimar",
-    "rights": "© All rights reserved. All rights belong to Waslah Mimari Contracting."
+    "rights": "© All rights reserved. All rights reserved to Waslah Mi'mar."
   }
 }

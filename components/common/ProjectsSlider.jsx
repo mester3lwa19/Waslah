@@ -1,147 +1,179 @@
-import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
+"use client";
+import React, { useEffect } from "react";
 import Image from "next/image";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
+import { useTranslation } from "react-i18next";
+import Cookies from "js-cookie";
+import i18n from "i18next";
+import { LocationOn, SquareFoot, Factory } from "@mui/icons-material";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination } from "swiper/modules";
 
-// Projects slider component using shadcn carousel
-export default function ProjectsSlider() {
+function ProjectsSlider() {
   const { t } = useTranslation();
+  const lng = Cookies.get("i18next") || "en";
+  const isRTL = lng === "ar";
+
+  useEffect(() => {
+    window.document.dir = i18n.dir();
+  }, [lng]);
+
   const projects = t("projectsData", { returnObjects: true });
-  const [imageErrors, setImageErrors] = useState(new Set());
 
-  // Function to get image source with proper fallback
-  const getImageSource = (project, index) => {
-    // If this image has errored before, use fallback immediately
-    if (imageErrors.has(index)) {
-      return `/imgs/projects${(index % 3) + 1}.jpg`;
-    }
-
-    // Try project's image first, then fallback
-    return project.src;
-  };
-
-  // Handle image loading errors
-  const handleImageError = (index, e) => {
-    console.error(`Failed to load image for project ${index + 1}`);
-
-    // Mark this index as having an error
-    setImageErrors((prev) => new Set(prev).add(index));
-
-    // Set fallback image
-    const fallbackImage = `/imgs/project${(index % 3) + 1}.jpg`;
-    e.currentTarget.src = fallbackImage;
-  };
-
-  // Add loading check
-  if (!projects || !Array.isArray(projects)) {
-    return <div>Loading projects...</div>;
-  }
+  // Debug logging
+  console.log(`Language: ${lng}, Projects count: ${projects?.length}`);
+  console.log("Projects data:", projects);
 
   return (
-    <div className="w-full px-4">
-      <Carousel
-        opts={{
-          align: "start",
-          loop: true,
-        }}
-        className="w-full"
-      >
-        <CarouselContent className="-ml-2 md:-ml-4">
-          {projects.map((project, index) => (
-            <CarouselItem
-              key={`project-${index}`}
-              className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3"
-            >
-              <Card className="h-full">
-                <CardContent className="p-0">
-                  <div className="relative h-80 sm:h-96 rounded-lg overflow-hidden bg-white">
-                    {/* Project Image */}
-                    <div className="relative h-48 sm:h-56">
-                      <Image
-                        src={getImageSource(project, index)}
-                        alt={project.title || `Project ${index + 1}`}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        onError={(e) => handleImageError(index, e)}
-                        priority={index < 3} // Prioritize first 3 images
-                      />
-                    </div>
+    <div className="py-12 w-full">
+      <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Swiper Container with proper width constraints */}
+        <div className="relative w-full overflow-hidden">
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={20}
+            slidesPerView={1}
+            navigation={{
+              nextEl: `.swiper-button-next-${lng}`,
+              prevEl: `.swiper-button-prev-${lng}`,
+            }}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+              el: `.swiper-pagination-${lng}`,
+            }}
+            dir={isRTL ? "rtl" : "ltr"}
+            key={lng}
+            className="projects-swiper w-full"
+            breakpoints={{
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 24, // Adjust this as needed
+              },
+              1280: {
+                slidesPerView: 3,
+                spaceBetween: 28, // Adjust this as needed
+              },
+            }}
+          >
+            {projects.map((project, index) => (
+              <SwiperSlide key={`${lng}-${index}`} className="">
+                <div className="flex flex-col section-bg rounded-xl bg-white overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-[1.02] h-full">
+                  {/* Top Image */}
+                  <div className="relative w-full h-72 overflow-hidden">
+                    <Image
+                      src={project.src}
+                      alt={project.alt}
+                      fill
+                      className="object-cover transition-transform duration-300 hover:scale-105"
+                      priority={index < 3}
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </div>
 
-                    {/* Project Info */}
-                    <div className="p-4 h-32 sm:h-40 flex flex-col justify-between">
-                      {/* Client Logo Placeholder */}
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                          <span className="text-blue-600 font-bold text-sm">
-                            {project.title
-                              ? project.title.split(" ")[0].substring(0, 2)
-                              : "PR"}
-                          </span>
-                        </div>
+                  {/* Card Body */}
+                  <div
+                    className={`flex flex-col gap-3 p-4 sm:p-6 flex-grow ${
+                      isRTL ? "text-right" : "text-left"
+                    }`}
+                  >
+                    {/* Company Logo */}
+                    {project.logo && (
+                      <div className="relative w-20 h-16 sm:w-24 sm:h-20 flex-shrink-0">
+                        <Image
+                          src={project.logo}
+                          alt={`${project.title} logo`}
+                          fill
+                          className="object-contain"
+                          sizes="96px"
+                        />
                       </div>
+                    )}
 
-                      {/* Project Title */}
-                      <h3
-                        className="text-sm font-bold text-gray-800 line-clamp-2 mb-2"
-                        dir="rtl"
-                      >
-                        {project.title || `مشروع ${index + 1}`}
-                      </h3>
+                    {/* Title */}
+                    <h3 className="text-lg sm:text-xl font-bold line-clamp-2">
+                      {project.title}
+                    </h3>
 
-                      {/* Project Details */}
-                      <div
-                        className="space-y-2 text-xs text-gray-600"
-                        dir="rtl"
-                      >
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-1">
-                            <span className="text-blue-500">📍</span>
-                            <span className="truncate">
-                              {project.location || "غير محدد"}
-                            </span>
-                          </div>
-                        </div>
+                    {/* Description */}
+                    {project.description && (
+                      <p className="text-gray-600 text-sm line-clamp-3 flex-grow">
+                        {project.description}
+                      </p>
+                    )}
 
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-1">
-                            <span className="text-yellow-500">📏</span>
-                            <span>{project.size || "غير محدد"}</span>
-                          </div>
-                          {project.type && (
-                            <div className="flex items-center gap-1">
-                              <span className="text-orange-500">🏭</span>
-                              <span>{project.type}</span>
-                            </div>
-                          )}
-                        </div>
-
-                        {project.delivery && (
-                          <div className="flex items-center gap-1">
-                            <span className="text-green-500">⚡</span>
-                            <span>{project.delivery}</span>
-                          </div>
-                        )}
+                    {/* Meta Info */}
+                    <div
+                      className={`grid grid-cols-1 sm:grid-cols-2 gap-3 mt-auto text-sm text-gray-700 ${
+                        isRTL ? "text-right" : "text-left"
+                      }`}
+                    >
+                      <div className={`flex items-center gap-2 flex-start`}>
+                        <LocationOn
+                          fontSize="small"
+                          className="text-amber-600 flex-shrink-0"
+                        />
+                        <span className="text-sm truncate">
+                          {project.location}
+                        </span>
+                      </div>
+                      <div className={`flex items-center gap-2 flex-start}`}>
+                        <SquareFoot
+                          fontSize="small"
+                          className="text-amber-600 flex-shrink-0"
+                        />
+                        <span className="text-sm truncate">{project.size}</span>
+                      </div>
+                      <div className={`flex items-center gap-2 flex-start`}>
+                        <Factory
+                          fontSize="small"
+                          className="text-amber-600 flex-shrink-0"
+                        />
+                        <span className="text-sm truncate">{project.type}</span>
+                      </div>
+                      <div className={`flex items-center gap-2 flex-start`}>
+                        <Image
+                          src="/icons/delivery-type.png"
+                          width={16}
+                          height={16}
+                          alt="delivery-type"
+                          className="flex-shrink-0"
+                        />
+                        <span className="text-sm truncate">
+                          {project.delivery}
+                        </span>
                       </div>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-        {/* Custom styled navigation buttons */}
-        <CarouselPrevious className="left-2 h-10 w-10 bg-blue-600 hover:bg-blue-700 text-white border-blue-600 hover:border-blue-700" />
-        <CarouselNext className="right-2 h-10 w-10 bg-blue-600 hover:bg-blue-700 text-white border-blue-600 hover:border-blue-700" />
-      </Carousel>
+          {/* Navigation Buttons with correct direction handling */}
+          <button
+            className={`swiper-button-prev-${lng} absolute top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-amber-600 text-white rounded-full font-bold hover:bg-amber-700 transition-all duration-300 hover:scale-110 shadow-lg flex items-center justify-center ${
+              isRTL ? "right-2 sm:right-4" : "left-2 sm:left-4"
+            }`}
+            aria-label={isRTL ? "Next slide" : "Previous slide"}
+          >
+            <span className="text-lg leading-none">{isRTL ? "→" : "←"}</span>
+          </button>
+
+          <button
+            className={`swiper-button-next-${lng} absolute top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-amber-600 text-white rounded-full font-bold hover:bg-amber-700 transition-all duration-300 hover:scale-110 shadow-lg flex items-center justify-center ${
+              isRTL ? "left-2 sm:left-4" : "right-2 sm:right-4"
+            }`}
+            aria-label={isRTL ? "Previous slide" : "Next slide"}
+          >
+            <span className="text-lg leading-none">{isRTL ? "←" : "→"}</span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
+
+export default ProjectsSlider;

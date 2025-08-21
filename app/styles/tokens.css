@@ -8,20 +8,20 @@
   --font-weight-black: 900;
 
   /* Grays */
-  --color-gray-25: #F6F7F8;
-  --color-gray-50: #FAFAFA;
-  --color-gray-100: #D1D3D9;
-  --color-gray-200: #E9EAEB;
-  --color-gray-300: #D5D7DA;
-  --color-gray-400: #A4A7AE;
+  --color-gray-25: #f6f7f8;
+  --color-gray-50: #fafafa;
+  --color-gray-100: #d1d3d9;
+  --color-gray-200: #e9eaeb;
+  --color-gray-300: #d5d7da;
+  --color-gray-400: #a4a7ae;
   --color-gray-500: #717680;
   --color-gray-600: #535862;
-  --color-gray-700: #4D505D;
-  --color-gray-800: #252B37;
-  --color-gray-900: #2D2F37;
+  --color-gray-700: #4d505d;
+  --color-gray-800: #252b37;
+  --color-gray-900: #2d2f37;
 
   /* Primary / Brand */
-  --color-primary-25: #FDFBF7;
+  --color-primary-25: #fdfbf7;
   --color-primary-50: #faf3e8;
   --color-primary-100: #efdab6;
   --color-primary-200: #e8c893;
@@ -32,7 +32,7 @@
   --color-primary-700: #91600e;
   --color-primary-800: #704a0b;
   --color-primary-900: #563908;
-  --gradient-text: linear-gradient(90deg, #FCC200 0%, #DA9200 100%);
+  --gradient-text: linear-gradient(90deg, #fcc200 0%, #da9200 100%);
   /* Error */
   --color-error-25: #fffbfa;
   --color-error-50: #fef3f2;
@@ -74,7 +74,7 @@
 
   /* Secondary (Dark Blue) */
 
-  --color-dark-blue-25: #F8FAFC;
+  --color-dark-blue-25: #f8fafc;
   --color-dark-blue-50: #e8f0f5;
   --color-dark-blue-100: #b8d1df;
   --color-dark-blue-200: #96bacf;
@@ -93,4 +93,57 @@
   --color-focus: var(--color-primary-200);
   --color-tertiary: var(--color-gray-500);
   --footer-background: #011724;
+}
+.projects-swiper {
+  max-width: 100% !important;
+  overflow: visible !important;
+}
+
+.projects-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.projects-swiper .swiper-slide {
+  height: auto !important;
+  display: flex !important;
+}
+
+.projects-swiper .swiper-slide > div {
+  width: 100%;
+}
+
+/* Hide default navigation */
+.projects-swiper .swiper-button-next,
+.projects-swiper .swiper-button-prev {
+  display: none !important;
+}
+
+/* Pagination styling */
+.swiper-pagination-bullet {
+  background: #d97706 !important;
+  opacity: 0.3 !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  transform: scale(1.2) !important;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  .projects-swiper {
+    margin: 0 -8px !important;
+    padding: 0 8px !important;
+  }
+}
+
+/* Ensure cards have equal height */
+.projects-swiper .swiper-slide {
+  display: flex !important;
+}
+
+.projects-swiper .swiper-slide > div {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
 }
