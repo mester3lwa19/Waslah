@@ -15,7 +15,19 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const lng = Cookies.get("i18next") || "en";
+  const [mounted, setMounted] = useState(false);
+  const [lng, setLng] = useState("en");
+
+  // Handle mounting to prevent hydration issues
+  useEffect(() => {
+    setMounted(true);
+    // Get language after mounting to avoid SSR mismatch
+    const savedLng = Cookies.get("i18next") || "en";
+    setLng(savedLng);
+
+    // Set initial scroll state after mounting
+    setScrolled(window.scrollY > 50);
+  }, []);
 
   const navLinks = [
     { href: "/", label: t("navbar.home") },
@@ -26,25 +38,74 @@ export default function Navbar() {
   ];
 
   useEffect(() => {
+    if (!mounted) return;
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, [mounted]);
+
+  // Update language state when i18n language changes
+  useEffect(() => {
+    const handleLanguageChange = (newLng) => {
+      setLng(newLng);
+    };
+
+    i18n.on("languageChanged", handleLanguageChange);
+    return () => i18n.off("languageChanged", handleLanguageChange);
   }, []);
+
+  // Prevent hydration mismatch by not rendering until mounted
+  if (!mounted) {
+    return (
+      <nav className="fixed top-0 left-0 w-full z-50 bg-transparent text-white">
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16 items-center">
+            {/* Logo */}
+            <div className="flex-shrink-0 text-lg font-bold">
+              <Image src="/imgs/logo.svg" width={100} height={50} alt="Logo" />
+            </div>
+
+            {/* Desktop Menu Skeleton */}
+            <div className="hidden md:flex gap-4">
+              {[...Array(5)].map((_, i) => (
+                <div key={i} className="w-16 h-6 bg-transparent"></div>
+              ))}
+              <div className="w-16 h-6 bg-transparent"></div>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <MenuIcon className="text-white" />
+            </div>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 
   return (
     <>
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-          scrolled ? "bg-white text-black shadow-md" : "bg-transparent text-white"
+          scrolled
+            ? "bg-white text-black shadow-md"
+            : "bg-transparent text-white"
         }`}
       >
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             {/* Logo */}
             <div className="flex-shrink-0 text-lg font-bold">
-              <Image src={scrolled ? "/imgs/logoBlue.svg" : "/imgs/logo.svg"} width={100} height={50} alt="Logo" />
+              <Image
+                src={scrolled ? "/imgs/logoBlue.svg" : "/imgs/logo.svg"}
+                width={100}
+                height={50}
+                alt="Logo"
+              />
             </div>
 
             {/* Desktop Menu */}
@@ -87,7 +148,10 @@ export default function Navbar() {
 
             {/* Mobile Menu Button */}
             <div className="md:hidden">
-              <button onClick={() => setIsOpen(!isOpen)}>
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label="Toggle mobile menu"
+              >
                 <MenuIcon className={scrolled ? "text-black" : "text-white"} />
               </button>
             </div>
@@ -98,53 +162,67 @@ export default function Navbar() {
       {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-opacity-50 z-40"
+          className="fixed inset-0 bg-black bg-opacity-50 z-40"
           onClick={() => setIsOpen(false)}
         ></div>
       )}
 
       {/* Side Menu */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-[url('/imgs/sidebarImage.jpg')] text-white z-50 transform transition-transform duration-300 ${
+        className={`fixed top-0 left-0 h-full w-64 bg-[url('/imgs/sidebarImage.jpg')] bg-cover bg-center text-white z-50 transform transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="p-4 flex justify-between items-center border-b border-gray-700">
-          <button onClick={() => setIsOpen(false)}>
-            <CloseIcon className="text-white" />
-          </button>
-        </div>
-        <div className="p-4 flex flex-col gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+
+        <div className="relative z-10">
+          <div className="p-4 flex justify-between items-center border-b border-gray-700">
+            <button
               onClick={() => setIsOpen(false)}
-              className={`${
-                pathname === link.href
-                  ? "gradient-text text-xl font-bold"
-                  : "gradient-hover text-xl"
-              } transition-colors duration-200`}
+              aria-label="Close mobile menu"
             >
-              {link.label}
-            </Link>
-          ))}
-          <div className="flex">
-            {lng === "en" ? (
-              <button
-                onClick={() => i18n.changeLanguage("ar")}
-                className="text-white text-xl px-3 py-2 hover:text-gray-300"
+              <CloseIcon className="text-white" />
+            </button>
+          </div>
+          <div className="p-4 flex flex-col gap-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className={`${
+                  pathname === link.href
+                    ? "gradient-text text-xl font-bold"
+                    : "gradient-hover text-xl"
+                } transition-colors duration-200`}
               >
-                العربية
-              </button>
-            ) : (
-              <button
-                onClick={() => i18n.changeLanguage("en")}
-                className="text-white text-xl px-3 py-2 hover:text-gray-300"
-              >
-                English
-              </button>
-            )}
+                {link.label}
+              </Link>
+            ))}
+            <div className="flex">
+              {lng === "en" ? (
+                <button
+                  onClick={() => {
+                    i18n.changeLanguage("ar");
+                    setIsOpen(false);
+                  }}
+                  className="text-white text-xl px-3 py-2 hover:text-gray-300"
+                >
+                  العربية
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    i18n.changeLanguage("en");
+                    setIsOpen(false);
+                  }}
+                  className="text-white text-xl px-3 py-2 hover:text-gray-300"
+                >
+                  English
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>

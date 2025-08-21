@@ -20,11 +20,20 @@ function ProjectsSlider() {
     window.document.dir = i18n.dir();
   }, [lng]);
 
-  const projects = t("projectsData", { returnObjects: true });
+  // Add error handling and fallback
+  const projectsData = t("projectsData", { returnObjects: true });
+  const projects = Array.isArray(projectsData) ? projectsData : [];
 
-  // Debug logging
-  console.log(`Language: ${lng}, Projects count: ${projects?.length}`);
-  console.log("Projects data:", projects);
+  // Early return if no projects
+  if (projects.length === 0) {
+    return (
+      <div className="py-12 w-full">
+        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center text-gray-500">No projects available</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="py-12 w-full">
@@ -50,11 +59,11 @@ function ProjectsSlider() {
             breakpoints={{
               768: {
                 slidesPerView: 2,
-                spaceBetween: 24, // Adjust this as needed
+                spaceBetween: 24,
               },
               1280: {
                 slidesPerView: 3,
-                spaceBetween: 28, // Adjust this as needed
+                spaceBetween: 28,
               },
             }}
           >
@@ -64,8 +73,8 @@ function ProjectsSlider() {
                   {/* Top Image */}
                   <div className="relative w-full h-72 overflow-hidden">
                     <Image
-                      src={project.src}
-                      alt={project.alt}
+                      src={project.src || "/placeholder-image.jpg"}
+                      alt={project.alt || project.title || "Project image"}
                       fill
                       className="object-cover transition-transform duration-300 hover:scale-105"
                       priority={index < 3}
@@ -94,7 +103,7 @@ function ProjectsSlider() {
 
                     {/* Title */}
                     <h3 className="text-lg sm:text-xl font-bold line-clamp-2">
-                      {project.title}
+                      {project.title || "Untitled Project"}
                     </h3>
 
                     {/* Description */}
@@ -110,41 +119,53 @@ function ProjectsSlider() {
                         isRTL ? "text-right" : "text-left"
                       }`}
                     >
-                      <div className={`flex items-center gap-2 flex-start`}>
-                        <LocationOn
-                          fontSize="small"
-                          className="text-amber-600 flex-shrink-0"
-                        />
-                        <span className="text-sm truncate">
-                          {project.location}
-                        </span>
-                      </div>
-                      <div className={`flex items-center gap-2 flex-start}`}>
-                        <SquareFoot
-                          fontSize="small"
-                          className="text-amber-600 flex-shrink-0"
-                        />
-                        <span className="text-sm truncate">{project.size}</span>
-                      </div>
-                      <div className={`flex items-center gap-2 flex-start`}>
-                        <Factory
-                          fontSize="small"
-                          className="text-amber-600 flex-shrink-0"
-                        />
-                        <span className="text-sm truncate">{project.type}</span>
-                      </div>
-                      <div className={`flex items-center gap-2 flex-start`}>
-                        <Image
-                          src="/icons/delivery-type.png"
-                          width={16}
-                          height={16}
-                          alt="delivery-type"
-                          className="flex-shrink-0"
-                        />
-                        <span className="text-sm truncate">
-                          {project.delivery}
-                        </span>
-                      </div>
+                      {project.location && (
+                        <div className={`flex items-center gap-2 flex-start`}>
+                          <LocationOn
+                            fontSize="small"
+                            className="text-amber-600 flex-shrink-0"
+                          />
+                          <span className="text-sm truncate">
+                            {project.location}
+                          </span>
+                        </div>
+                      )}
+                      {project.size && (
+                        <div className={`flex items-center gap-2 flex-start`}>
+                          <SquareFoot
+                            fontSize="small"
+                            className="text-amber-600 flex-shrink-0"
+                          />
+                          <span className="text-sm truncate">
+                            {project.size}
+                          </span>
+                        </div>
+                      )}
+                      {project.type && (
+                        <div className={`flex items-center gap-2 flex-start`}>
+                          <Factory
+                            fontSize="small"
+                            className="text-amber-600 flex-shrink-0"
+                          />
+                          <span className="text-sm truncate">
+                            {project.type}
+                          </span>
+                        </div>
+                      )}
+                      {project.delivery && (
+                        <div className={`flex items-center gap-2 flex-start`}>
+                          <Image
+                            src="/icons/delivery-type.png"
+                            width={16}
+                            height={16}
+                            alt="delivery-type"
+                            className="flex-shrink-0"
+                          />
+                          <span className="text-sm truncate">
+                            {project.delivery}
+                          </span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
