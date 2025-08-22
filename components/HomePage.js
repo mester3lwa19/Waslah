@@ -179,7 +179,7 @@ export default async function HomePage() {
         <div className="container flex flex-col justify-center items-start mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <SectionHeading
             lng={lng}
-            sectionTitle={t("homePage.servicesTitle")}
+            sectionTitle={t("services.title")}
           />
           <ServicesSlider logos={servicesLogos} />
         </div>
