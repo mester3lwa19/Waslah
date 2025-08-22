@@ -94,22 +94,6 @@ export default function ServicesSlider({ logos = [] }) {
           </button>
         </div>
       )}
-
-      {/* Dots indicator - only show if more than 1 slide */}
-      {logoList.length > 1 && (
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-          {logoList.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-2 h-2 rounded-full transition-colors ${
-                index === currentSlide ? "bg-blue-800" : "bg-gray-300"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
-      )}
     </div>
   );
 }

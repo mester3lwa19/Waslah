@@ -1,17 +1,16 @@
-"use client";
-import React, { useEffect } from "react";
+// app/services/page.js (Server Component)
+import React from "react";
 import Image from "next/image";
-import { useTranslation } from "react-i18next";
-import Cookies from "js-cookie";
-import i18n from "i18next";
+import { useTranslation } from "@/lib/i18n";
+import { detectLanguage } from "@/lib/language-detector";
 
-function Services() {
-  const { t } = useTranslation();
-  const lng = Cookies.get("i18next") || "en";
-  useEffect(() => {
-    window.document.dir = i18n.dir();
-  }, [lng]);
-  const logos = t("servicesLogo", { returnObjects: true });
+export default async function Services() {
+  const lng = await detectLanguage();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t } = await useTranslation(lng, "translation");
+
+  const textAlign = lng === "ar" ? "text-right" : "text-left";
+  const logos = t("servicesLogo", { returnObjects: true }) || [];
 
   return (
     <>
@@ -31,17 +30,18 @@ function Services() {
         >
           {/* Heading */}
           <h1
-            className={`text-4xl sm:text-6xl md:text-7xl gradient-text font-bold leading-tight md:leading-none ${
-              lng === "ar" ? "text-right" : "text-left"
-            }`}
+            className={`text-4xl sm:text-6xl md:text-7xl gradient-text font-bold leading-tight md:leading-none ${textAlign}`}
           >
             {t("services.title")}
           </h1>
-          <p className="text-2xl text-white">{t("services.description")}</p>
+          <p className={`text-2xl text-white ${textAlign}`}>
+            {t("services.description")}
+          </p>
         </div>
       </div>
-      <div className=" section-bg ">
-        <div className="container mx-auto max-w-7xl grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 p-6">
+
+      <div className="section-bg">
+        <div className="container mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 p-6">
           {logos.map((logo, index) => (
             <div
               key={index}
@@ -51,7 +51,7 @@ function Services() {
               <div className="relative w-full h-40 flex items-center justify-center">
                 <Image
                   src={logo.src}
-                  alt={logo.alt}
+                  alt={logo.alt || `${logo.title} service icon`}
                   fill
                   className="object-contain"
                   priority={index < 6}
@@ -64,7 +64,9 @@ function Services() {
               </span>
 
               {/* Description */}
-              <p className="text-center text-xl">{logo.description}</p>
+              <p className={`text-center text-xl ${textAlign}`}>
+                {logo.description}
+              </p>
             </div>
           ))}
         </div>
@@ -72,5 +74,3 @@ function Services() {
     </>
   );
 }
-
-export default Services;
