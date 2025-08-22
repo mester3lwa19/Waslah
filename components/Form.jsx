@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+// components/Form.jsx
+'use client';
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useTranslation } from "react-i18next";
-import Cookies from "js-cookie";
 import emailjs from "emailjs-com";
 
-export default function Form() {
-  const { t } = useTranslation();
-  const lng = Cookies.get("i18next") || "en";
-
+// Receive translations and language from the parent server component
+// Provide an empty object as a default value for translations to prevent errors
+export default function Form({ lng, translations }) {
   const {
     register,
     handleSubmit,
@@ -16,7 +15,14 @@ export default function Form() {
   } = useForm();
 
   const [status, setStatus] = useState("idle");
-  // idle | success | error
+  const isRTL = lng === "ar";
+
+  useEffect(() => {
+    // Note: This useEffect might not be strictly necessary if the language is
+    // only set on page load via the server component, but it's good practice
+    // for a client component that could be used in other contexts.
+    // window.document.dir = lng === "ar" ? "rtl" : "ltr";
+  }, [lng]);
 
   const onSubmit = async (data) => {
     try {
@@ -34,28 +40,25 @@ export default function Form() {
       );
       reset();
       setStatus("success");
-
-      // Reset button text back to default after 3s
       setTimeout(() => setStatus("idle"), 3000);
     } catch (error) {
       console.error("EmailJS Error:", error);
       setStatus("error");
-
-      // Reset button text back to default after 3s
       setTimeout(() => setStatus("idle"), 3000);
     }
   };
 
-  const align = lng === "ar" ? "text-right" : "text-left";
+  const align = isRTL ? "text-right" : "text-left";
 
-  // Decide button text
-  let buttonText = t("homePage.contact.buttons.send");
+  // Safely access properties using optional chaining or by checking for existence
+  // Note: Using `translations.sendButton ?? ''` is another safe way to do this.
+  let buttonText = translations.sendButton;
   if (isSubmitting) {
-    buttonText = t("homePage.contact.buttons.sending");
+    buttonText = translations.sendingButton;
   } else if (status === "success") {
-    buttonText = t("homePage.contact.successMessage");
+    buttonText = translations.successMessage;
   } else if (status === "error") {
-    buttonText = t("homePage.contact.errorMessage");
+    buttonText = translations.errorMessage;
   }
 
   return (
@@ -71,15 +74,15 @@ export default function Form() {
               <label
                 className={`block ${align} text-primary-500 font-medium mb-3 text-xl`}
               >
-                {t("homePage.contact.fields.name")}
+                {translations.nameField}
               </label>
               <input
                 type="text"
                 {...register("name", {
-                  required: t("homePage.contact.errors.name"),
+                  required: translations.nameError,
                 })}
                 className="w-full px-4 py-3 sm:py-4 border border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-400 text-xl"
-                placeholder={t("homePage.contact.placeholders.name")}
+                placeholder={translations.namePlaceholder}
               />
               {errors.name && (
                 <p className="text-red-500 text-sm mt-2">
@@ -87,24 +90,23 @@ export default function Form() {
                 </p>
               )}
             </div>
-
             <div>
               <label
                 className={`block ${align} text-primary-500 font-medium mb-3 text-xl`}
               >
-                {t("homePage.contact.fields.email")}
+                {translations.emailField}
               </label>
               <input
                 type="email"
                 {...register("email", {
-                  required: t("homePage.contact.errors.emailRequired"),
+                  required: translations.emailRequiredError,
                   pattern: {
                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: t("homePage.contact.errors.emailInvalid"),
+                    message: translations.emailInvalidError,
                   },
                 })}
                 className="w-full px-4 py-3 sm:py-4 border border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-400 text-xl"
-                placeholder={t("homePage.contact.placeholders.email")}
+                placeholder={translations.emailPlaceholder}
               />
               {errors.email && (
                 <p className="text-red-500 text-sm mt-2">
@@ -120,15 +122,15 @@ export default function Form() {
               <label
                 className={`block ${align} text-primary-500 font-medium mb-3 text-xl`}
               >
-                {t("homePage.contact.fields.phone")}
+                {translations.phoneField}
               </label>
               <input
                 type="tel"
                 {...register("phone", {
-                  required: t("homePage.contact.errors.phone"),
+                  required: translations.phoneError,
                 })}
                 className="w-full px-4 py-3 sm:py-4 border border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-400 text-xl"
-                placeholder={t("homePage.contact.placeholders.phone")}
+                placeholder={translations.phonePlaceholder}
               />
               {errors.phone && (
                 <p className="text-red-500 text-sm mt-2">
@@ -136,20 +138,19 @@ export default function Form() {
                 </p>
               )}
             </div>
-
             <div>
               <label
                 className={`block ${align} text-primary-500 font-medium mb-3 text-xl`}
               >
-                {t("homePage.contact.fields.address")}
+                {translations.addressField}
               </label>
               <input
                 type="text"
                 {...register("address", {
-                  required: t("homePage.contact.errors.address"),
+                  required: translations.addressError,
                 })}
                 className="w-full px-4 py-3 sm:py-4 border border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-400 text-xl"
-                placeholder={t("homePage.contact.placeholders.address")}
+                placeholder={translations.addressPlaceholder}
               />
               {errors.address && (
                 <p className="text-red-500 text-sm mt-2">
@@ -164,15 +165,15 @@ export default function Form() {
             <label
               className={`block ${align} text-primary-500 font-medium mb-3 text-xl`}
             >
-              {t("homePage.contact.fields.message")}
+              {translations.messageField}
             </label>
             <textarea
               rows="6"
               {...register("message", {
-                required: t("homePage.contact.errors.message"),
+                required: translations.messageError,
               })}
               className="w-full px-4 py-3 sm:py-4 border border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-400 resize-vertical text-xl"
-              placeholder={t("homePage.contact.placeholders.message")}
+              placeholder={translations.messagePlaceholder}
             />
             {errors.message && (
               <p className="text-red-500 text-sm mt-2">

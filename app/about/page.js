@@ -1,20 +1,17 @@
-"use client";
-import React, { useEffect } from "react";
+// app/about/page.js (Pure Server Component - Alternative Version)
+import React from "react";
 import Image from "next/image";
-import { useTranslation } from "react-i18next";
-import Cookies from "js-cookie";
-import i18n from "i18next";
+import { useTranslation } from '@/lib/i18n';
+import { detectLanguage } from "@/lib/language-detector";
 import SectionHeading from "@/components/common/SectionHeading";
 
-function About() {
-  const { t } = useTranslation();
-  const lng = Cookies.get("i18next") || "en";
-  const textAlign = lng === "ar" ? "text-right" : "text-left";
-  const items = t("about.items", { returnObjects: true });
+export default async function About() {
+  const lng = await detectLanguage();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t } = await useTranslation(lng, "translation");
 
-  useEffect(() => {
-    window.document.dir = i18n.dir();
-  }, [lng]);
+  const textAlign = lng === "ar" ? "text-right" : "text-left";
+  const items = t("about.items", { returnObjects: true }) || [];
 
   return (
     <>
@@ -35,29 +32,27 @@ function About() {
           >
             {t("about.title")}
           </h1>
-          <p
-            className={`text-2xl text-white ${
-              lng === "ar" ? "text-right" : "text-left"
-            }`}
-          >
+          <p className={`text-2xl text-white ${textAlign}`}>
             {t("about.description")}
           </p>
         </div>
       </div>
+
       <div className="py-10">
         <div className="container mx-auto flex flex-col">
-          <div className="flex items-center ">
+          <div className="flex items-center">
             <p className="text-dark-blue-800 text-2xl">
               {t("homePage.projectsSubTitle")}
             </p>
             <a
               href={"/pdfs/profile.pdf"}
               download
-              className="inline-block  font-semibold py-3 px-6  transition duration-300 ease-in-out transform hover:scale-110 focus:outline-non"
+              className="inline-block font-semibold py-3 px-6 transition duration-300 ease-in-out transform hover:scale-110 focus:outline-none"
             >
-              <img src="/icons/download.svg"></img>
+              <img src="/icons/download.svg" alt="Download" />
             </a>
           </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 my-6">
             {items.map((item, index) => (
               <div key={index} className="flex flex-col gap-3 flex-start">
@@ -66,7 +61,7 @@ function About() {
                   <div className="relative w-7 h-7">
                     <Image
                       src={item.img}
-                      alt={item.alt}
+                      alt={item.alt || `Icon ${index + 1}`}
                       fill
                       className="object-contain"
                     />
@@ -85,6 +80,7 @@ function About() {
           </div>
         </div>
       </div>
+
       <div className="section-bg py-10">
         <div className="container mx-auto flex flex-col">
           <SectionHeading lng={lng} sectionTitle={t("about.founder")} />
@@ -93,8 +89,8 @@ function About() {
             {/* Founder Image */}
             <div className="flex-shrink-0">
               <Image
-                src={"/imgs/Mohamed-Shahat.jpg"}
-                alt="shahat"
+                src="/imgs/Mohamed-Shahat.jpg"
+                alt="Mohamed Shahat - Founder"
                 width={400}
                 height={300}
                 className="rounded-xl object-cover shadow-md max-w-full md:max-w-lg"
@@ -102,7 +98,9 @@ function About() {
             </div>
 
             {/* Founder Description */}
-            <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-800 ">
+            <p
+              className={`text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-800 ${textAlign}`}
+            >
               {t("about.founderDescription")}
             </p>
           </div>
@@ -111,5 +109,3 @@ function About() {
     </>
   );
 }
-
-export default About;

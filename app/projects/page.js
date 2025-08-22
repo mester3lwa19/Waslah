@@ -1,19 +1,16 @@
-"use client";
-import React, { useEffect } from "react";
+// app/projects/page.js (Server Component)
+import React from "react";
 import Image from "next/image";
-import { useTranslation } from "react-i18next";
-import Cookies from "js-cookie";
-import i18n from "i18next";
+import { useTranslation } from "@/lib/i18n";
+import { detectLanguage } from "@/lib/language-detector";
 import { LocationOn, SquareFoot, Factory } from "@mui/icons-material";
-function Projects() {
-  const { t } = useTranslation();
-  const lng = Cookies.get("i18next") || "en";
 
-  useEffect(() => {
-    window.document.dir = i18n.dir();
-  }, [lng]);
+export default async function Projects() {
+  const lng = await detectLanguage();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t } = await useTranslation(lng, "translation");
 
-  const projects = t("projectsData", { returnObjects: true });
+  const projects = t("projectsData", { returnObjects: true }) || [];
   const textAlign = lng === "ar" ? "text-right" : "text-left";
   const flexDirection = lng === "ar" ? "flex-row-reverse" : "flex-row";
 
@@ -36,11 +33,7 @@ function Projects() {
           >
             {t("projects.title")}
           </h1>
-          <p
-            className={`text-2xl text-white ${
-              lng === "ar" ? "text-right" : "text-left"
-            }`}
-          >
+          <p className={`text-2xl text-white ${textAlign}`}>
             {t("projects.description")}
           </p>
         </div>
@@ -57,7 +50,7 @@ function Projects() {
               <div className="relative w-full h-72">
                 <Image
                   src={project.src}
-                  alt={project.alt}
+                  alt={project.alt || `${project.title} project image`}
                   fill
                   className="object-cover"
                   priority={index < 6}
@@ -65,17 +58,13 @@ function Projects() {
               </div>
 
               {/* Card Body */}
-              <div
-                className={`flex flex-col gap-3 p-6 ${
-                  lng === "ar" ? "text-right" : "text-left"
-                }`}
-              >
+              <div className={`flex flex-col gap-3 p-6 ${textAlign}`}>
                 {/* Company Logo */}
                 {project.logo && (
-                  <div className="relative w-24 h-20 ">
+                  <div className="relative w-24 h-20">
                     <Image
                       src={project.logo}
-                      alt={`${project.title} logo`}
+                      alt={`${project.title} company logo`}
                       fill
                       className="object-contain"
                     />
@@ -90,28 +79,42 @@ function Projects() {
 
                 {/* Meta Info */}
                 <div
-                  className={`grid grid-cols-1 sm:grid-cols-2 gap-5 mt-3 text-sm text-gray-700 ${
-                    lng === "ar" ? "text-right" : "text-left"
-                  }`}
+                  className={`grid grid-cols-1 sm:grid-cols-2 gap-5 mt-3 text-sm text-gray-700 ${textAlign}`}
                 >
-                  <div className="flex items-center gap-2">
+                  <div
+                    className={`flex items-center gap-2 ${
+                      lng === "ar" ? "justify-end" : "justify-start"
+                    }`}
+                  >
                     <LocationOn fontSize="medium" className="text-amber-600" />
                     <span className="text-base">{project.location}</span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div
+                    className={`flex items-center gap-2 ${
+                      lng === "ar" ? "justify-end" : "justify-start"
+                    }`}
+                  >
                     <SquareFoot fontSize="medium" className="text-amber-600" />
                     <span className="text-base">{project.size}</span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div
+                    className={`flex items-center gap-2 ${
+                      lng === "ar" ? "justify-end" : "justify-start"
+                    }`}
+                  >
                     <Factory fontSize="medium" className="text-amber-600" />
                     <span className="text-base">{project.type}</span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div
+                    className={`flex items-center gap-2 ${
+                      lng === "ar" ? "justify-end" : "justify-start"
+                    }`}
+                  >
                     <Image
-                      src={"/icons/delivery-type.png"}
+                      src="/icons/delivery-type.png"
                       width={20}
                       height={20}
-                      alt="delivery-type"
+                      alt="Delivery type icon"
                     />
                     <span className="text-base">{project.delivery}</span>
                   </div>
@@ -124,5 +127,3 @@ function Projects() {
     </>
   );
 }
-
-export default Projects;

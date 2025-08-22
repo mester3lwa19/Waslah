@@ -1,17 +1,18 @@
-"use client";
-import React, { useEffect } from "react";
+// app/documents/page.js (Server Component)
+import React from "react";
 import Image from "next/image";
-import { useTranslation } from "react-i18next";
-import Cookies from "js-cookie";
-import i18n from "i18next";
+import { useTranslation } from '@/lib/i18n';
+import { detectLanguage } from "@/lib/language-detector";
 import DownloadIcon from "@mui/icons-material/Download";
-function Documents() {
-  const { t } = useTranslation();
-  const lng = Cookies.get("i18next") || "en";
-  useEffect(() => {
-    window.document.dir = i18n.dir();
-  }, [lng]);
-  const docs = t("documents.docs", { returnObjects: true });
+
+export default async function Documents() {
+  const lng = await detectLanguage();
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t } = await useTranslation(lng, "translation");
+
+  const textAlign = lng === "ar" ? "text-right" : "text-left";
+  const docs = t("documents.docs", { returnObjects: true }) || [];
+
   return (
     <>
       <div className="relative w-full h-dvh">
@@ -30,15 +31,16 @@ function Documents() {
         >
           {/* Heading */}
           <h1
-            className={`text-4xl sm:text-6xl md:text-7xl gradient-text font-bold leading-tight md:leading-none ${
-              lng === "ar" ? "text-right" : "text-left"
-            }`}
+            className={`text-4xl sm:text-6xl md:text-7xl gradient-text font-bold leading-tight md:leading-none ${textAlign}`}
           >
             {t("documents.title")}
           </h1>
-          <p className="text-2xl text-white">{t("documents.description")}</p>
+          <p className={`text-2xl text-white ${textAlign}`}>
+            {t("documents.description")}
+          </p>
         </div>
       </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
         {docs.map((doc, index) => (
           <div
@@ -47,10 +49,10 @@ function Documents() {
           >
             {/* Icon */}
             <Image
-              src={"/icons/ph_file-pdf.svg"}
+              src="/icons/ph_file-pdf.svg"
               width={70}
               height={70}
-              alt="pdfImage"
+              alt="PDF Document Icon"
             />
 
             {/* Title */}
@@ -61,11 +63,11 @@ function Documents() {
             {/* Description */}
             <p className="text-gray-700 text-sm mt-2">{doc.description}</p>
 
-            {/* Button */}
+            {/* Download Button */}
             <a
               href={doc.file}
               download
-              className="mt-4 inline-flex gap-2 bg-yellow-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-yellow-600 transition"
+              className="mt-4 inline-flex gap-2 bg-yellow-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-yellow-600 transition-colors duration-200"
             >
               <DownloadIcon />
               {t("documents.download")}
@@ -76,5 +78,3 @@ function Documents() {
     </>
   );
 }
-
-export default Documents;
