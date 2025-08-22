@@ -12,13 +12,20 @@ export default function NavbarClient({ navLinks, lng: initialLng }) {
   const [scrolled, setScrolled] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [lng, setLng] = useState(initialLng);
+  // Separate state for the logo source
+  const [logoSrc, setLogoSrc] = useState("/imgs/logoWhite.png");
 
   // Handle mounting to prevent hydration issues
   useEffect(() => {
     setMounted(true);
     // Set initial scroll state after mounting
     if (typeof window !== "undefined") {
-      setScrolled(window.scrollY > 50);
+      const initialScrolled = window.scrollY > 50;
+      setScrolled(initialScrolled);
+      // Set the initial logo based on the scroll position
+      setLogoSrc(
+        initialScrolled ? "/imgs/logoBlue.png" : "/imgs/logoWhite.png"
+      );
     }
   }, []);
 
@@ -27,7 +34,10 @@ export default function NavbarClient({ navLinks, lng: initialLng }) {
     if (!mounted) return;
 
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const isScrolled = window.scrollY > 50;
+      setScrolled(isScrolled);
+      // Update the logo source based on the new scroll state
+      setLogoSrc(isScrolled ? "/imgs/logoBlue.png" : "/imgs/logoWhite.png");
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -56,7 +66,12 @@ export default function NavbarClient({ navLinks, lng: initialLng }) {
           <div className="flex justify-between h-16 items-center">
             {/* Logo */}
             <div className="flex-shrink-0 text-lg font-bold">
-              <Image src="/imgs/logoWhite.png" width={100} height={50} alt="Logo" />
+              <Image
+                src="/imgs/logoWhite.png"
+                width={100}
+                height={50}
+                alt="Logo"
+              />
             </div>
 
             {/* Desktop Menu Skeleton */}
@@ -91,7 +106,7 @@ export default function NavbarClient({ navLinks, lng: initialLng }) {
             {/* Logo */}
             <div className="flex-shrink-0 text-lg font-bold">
               <Image
-                src={scrolled ? "/imgs/logoBlue.png" : "/imgs/logoWhite.png"}
+                src={logoSrc} // Use the state variable
                 width={100}
                 height={50}
                 alt="Logo"
