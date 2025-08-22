@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 function SectionHeading({ lng, sectionTitle }) {
   return (
-    <h2 className="gradient-text flex justify-start items-center gap-4 text-3xl font-bold mb-2">
+    <h2 className="gradient-text flex justify-center items-center gap-4 text-3xl font-bold mb-2">
       {lng === "ar" ? (
         <>
           {" "}
@@ -30,7 +30,7 @@ function SectionHeading({ lng, sectionTitle }) {
             height={50}
             alt="Who We Are"
           />
-          <span>{sectionTitle}</span>
+          <span className="text-center">{sectionTitle}</span>
           <Image
             src={"/imgs/Line 2.svg"}
             width={100}

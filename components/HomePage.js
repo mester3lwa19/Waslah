@@ -42,7 +42,7 @@ export default async function HomePage() {
 
         {/* Overlay content */}
         <div
-          className={`container absolute inset-0 flex flex-col mx-auto justify-center gap-6 sm:gap-8 text-white px-4 items-start pt-20 sm:pt-24 lg:pt-32`}
+          className={`container mx-auto absolute inset-0 flex flex-col mx-auto justify-center gap-6 sm:gap-8 text-white px-4 items-start pt-20 sm:pt-24 lg:pt-32`}
         >
           {/* Heading */}
           <h1
@@ -87,13 +87,13 @@ export default async function HomePage() {
 
       {/* Who we are */}
       <section className="whoWeAre section-bg">
-        <div className="container mx-auto py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="container mx-auto flex flex-col items-center md:items-start py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl">
           <SectionHeading
             lng={lng}
             sectionTitle={t("homePage.whoWeAreTitle")}
           />
           <p
-            className={`text-lg sm:text-xl text-gray-700 mt-6 leading-relaxed ${textAlign} ${marginAuto}`}
+            className={`text-lg sm:text-xl text-gray-700 mt-6 leading-relaxed px-6 ${textAlign} ${marginAuto}`}
           >
             {t("homePage.whoWeAreDescription")}
           </p>
@@ -102,11 +102,13 @@ export default async function HomePage() {
 
       {/* Companies section */}
       <section className="companies py-10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <SectionHeading
-            lng={lng}
-            sectionTitle={t("homePage.companiesWeWorkedWithTitle")}
-          />
+        <div className="container mx-auto flex flex-col  px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="flex justify-center md:justify-start">
+            <SectionHeading
+              lng={lng}
+              sectionTitle={t("homePage.companiesWeWorkedWithTitle")}
+            />
+          </div>
           <div className="mt-8 sm:mt-12">
             <LogoSlider />
           </div>
@@ -117,13 +119,13 @@ export default async function HomePage() {
       <section className="verification section-bg sm:py-16 py-10">
         <div className="container flex flex-col justify-center items-start mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <SectionHeading lng={lng} sectionTitle={t("homePage.verified")} />
-          <VerificationSlider logos={verificationLogo} />
+          <VerificationSlider logos={verificationLogo} lng={lng} />
         </div>
       </section>
 
       {/* Projects Section */}
       <section className="projects sm:py-16 py-10">
-        <div className="container flex flex-col justify-center items-start mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="container flex flex-col justify-center items-center md:items-start mx-auto px-6 sm:px-6 lg:px-8 max-w-7xl">
           <SectionHeading
             lng={lng}
             sectionTitle={t("homePage.projectsTitle")}
@@ -153,7 +155,7 @@ export default async function HomePage() {
           />
 
           <div className="mt-4 grid grid-cols-1 lg:grid-cols-2 gap-6 w-full">
-            <div className="gradient-border flex flex-col justify-center items-center gap-4 px-4 py-6 h-full">
+            <div className="gradient-border flex flex-col justify-center items-center gap-4 px-4 py-6 h-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
               <h3 className="text-2xl sm:text-3xl my-2 sm:my-4 gradient-text text-center">
                 {t("homePage.visionTitle")}
               </h3>
@@ -162,7 +164,7 @@ export default async function HomePage() {
               </p>
             </div>
 
-            <div className="gradient-border flex flex-col justify-center items-center gap-4 px-4 py-6 h-full">
+            <div className="gradient-border flex flex-col justify-center items-center gap-4 px-4 py-6 h-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
               <h3 className="text-2xl sm:text-3xl my-2 sm:my-4 gradient-text text-center">
                 {t("homePage.missionTitle")}
               </h3>
@@ -176,12 +178,12 @@ export default async function HomePage() {
 
       {/* Services Section */}
       <section className="services sm:py-16 py-10">
-        <div className="container flex flex-col justify-center items-start mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="container flex flex-col justify-center items-center md:items-start mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <SectionHeading
             lng={lng}
-            sectionTitle={t("services.title")}
+            sectionTitle={t("homePage.servicesTitle")}
           />
-          <ServicesSlider logos={servicesLogos} />
+          <ServicesSlider logos={servicesLogos} lng={lng} />
         </div>
       </section>
 

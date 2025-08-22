@@ -29,11 +29,11 @@ export default async function Projects() {
           className={`container absolute inset-0 flex flex-col mx-auto justify-center gap-6 sm:gap-8 text-white px-4 pt-20 sm:pt-24 lg:pt-32`}
         >
           <h1
-            className={`text-4xl sm:text-6xl md:text-7xl gradient-text font-bold leading-tight md:leading-none ${textAlign}`}
+            className={`text-5xl sm:text-5xl md:text-6xl gradient-text font-bold leading-tight md:leading-none ${textAlign}`}
           >
             {t("projects.title")}
           </h1>
-          <p className={`text-2xl text-white ${textAlign}`}>
+          <p className={`text-lg sm:text-xl text-white ${textAlign}`}>
             {t("projects.description")}
           </p>
         </div>
@@ -47,7 +47,7 @@ export default async function Projects() {
               className={`flex flex-col rounded-xl bg-white overflow-hidden shadow-sm transition-all duration-300 hover:shadow-xl hover:scale-[1.02]`}
             >
               {/* Top Image */}
-              <div className="relative w-full h-72">
+              <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72">
                 <Image
                   src={project.src}
                   alt={project.alt || `${project.title} project image`}
@@ -75,41 +75,27 @@ export default async function Projects() {
                 <h3 className="text-xl font-bold">{project.title}</h3>
 
                 {/* Description */}
-                <p className="text-gray-600 text-sm">{project.description}</p>
+                <p className="text-gray-600 text-sm leading-none">
+                  {project.description}
+                </p>
 
                 {/* Meta Info */}
                 <div
                   className={`grid grid-cols-1 sm:grid-cols-2 gap-5 mt-3 text-sm text-gray-700 ${textAlign}`}
                 >
-                  <div
-                    className={`flex items-center gap-2 ${
-                      lng === "ar" ? "justify-end" : "justify-start"
-                    }`}
-                  >
+                  <div className={`flex items-center gap-2 flex-start`}>
                     <LocationOn fontSize="medium" className="text-amber-600" />
                     <span className="text-base">{project.location}</span>
                   </div>
-                  <div
-                    className={`flex items-center gap-2 ${
-                      lng === "ar" ? "justify-end" : "justify-start"
-                    }`}
-                  >
+                  <div className={`flex items-center gap-2 flex-start`}>
                     <SquareFoot fontSize="medium" className="text-amber-600" />
                     <span className="text-base">{project.size}</span>
                   </div>
-                  <div
-                    className={`flex items-center gap-2 ${
-                      lng === "ar" ? "justify-end" : "justify-start"
-                    }`}
-                  >
+                  <div className={`flex items-center gap-2 flex-start`}>
                     <Factory fontSize="medium" className="text-amber-600" />
                     <span className="text-base">{project.type}</span>
                   </div>
-                  <div
-                    className={`flex items-center gap-2 ${
-                      lng === "ar" ? "justify-end" : "justify-start"
-                    }`}
-                  >
+                  <div className={`flex items-center gap-2 flex-start`}>
                     <Image
                       src="/icons/delivery-type.png"
                       width={20}

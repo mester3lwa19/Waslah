@@ -30,11 +30,12 @@ export default async function Services() {
         >
           {/* Heading */}
           <h1
-            className={`text-4xl sm:text-6xl md:text-7xl gradient-text font-bold leading-tight md:leading-none ${textAlign}`}
+            className={`text-5xl sm:text-5xl md:text-6xl gradient-text font-bold leading-tight md:leading-none ${textAlign}`}
           >
             {t("services.title")}
           </h1>
-          <p className={`text-2xl text-white ${textAlign}`}>
+          {/* Description */}
+          <p className={`text-lg sm:text-xl text-white ${textAlign}`}>
             {t("services.description")}
           </p>
         </div>

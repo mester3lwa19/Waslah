@@ -1,7 +1,7 @@
 // app/about/page.js (Pure Server Component - Alternative Version)
 import React from "react";
 import Image from "next/image";
-import { useTranslation } from '@/lib/i18n';
+import { useTranslation } from "@/lib/i18n";
 import { detectLanguage } from "@/lib/language-detector";
 import SectionHeading from "@/components/common/SectionHeading";
 
@@ -28,18 +28,18 @@ export default async function About() {
           className={`container absolute inset-0 flex flex-col mx-auto justify-center gap-6 sm:gap-8 text-white px-4 pt-20 sm:pt-24 lg:pt-32`}
         >
           <h1
-            className={`text-4xl sm:text-6xl md:text-7xl gradient-text font-bold leading-tight md:leading-none ${textAlign}`}
+            className={`text-5xl sm:text-5xl md:text-6xl gradient-text font-bold leading-tight md:leading-none ${textAlign}`}
           >
             {t("about.title")}
           </h1>
-          <p className={`text-2xl text-white ${textAlign}`}>
+          <p className={`text-lg sm:text-xl text-white ${textAlign}`}>
             {t("about.description")}
           </p>
         </div>
       </div>
 
       <div className="py-10">
-        <div className="container mx-auto flex flex-col">
+        <div className="container mx-auto flex flex-col p-6">
           <div className="flex items-center">
             <p className="text-dark-blue-800 text-2xl">
               {t("homePage.projectsSubTitle")}
@@ -82,10 +82,10 @@ export default async function About() {
       </div>
 
       <div className="section-bg py-10">
-        <div className="container mx-auto flex flex-col">
+        <div className="container mx-auto flex flex-col items-center">
           <SectionHeading lng={lng} sectionTitle={t("about.founder")} />
 
-          <div className="flex flex-col md:flex-row items-center gap-6 mt-8">
+          <div className="flex flex-col px-6 md:flex-row items-center gap-6 mt-8">
             {/* Founder Image */}
             <div className="flex-shrink-0">
               <Image

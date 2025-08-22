@@ -56,7 +56,7 @@ export default function NavbarClient({ navLinks, lng: initialLng }) {
           <div className="flex justify-between h-16 items-center">
             {/* Logo */}
             <div className="flex-shrink-0 text-lg font-bold">
-              <Image src="/imgs/logo.svg" width={100} height={50} alt="Logo" />
+              <Image src="/imgs/logoWhite.png" width={100} height={50} alt="Logo" />
             </div>
 
             {/* Desktop Menu Skeleton */}
@@ -91,7 +91,7 @@ export default function NavbarClient({ navLinks, lng: initialLng }) {
             {/* Logo */}
             <div className="flex-shrink-0 text-lg font-bold">
               <Image
-                src={scrolled ? "/imgs/logoBlue.svg" : "/imgs/logo.svg"}
+                src={scrolled ? "/imgs/logoBlue.png" : "/imgs/logoWhite.png"}
                 width={100}
                 height={50}
                 alt="Logo"
@@ -164,7 +164,7 @@ export default function NavbarClient({ navLinks, lng: initialLng }) {
         }`}
       >
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="absolute inset-0  bg-opacity-50"></div>
 
         <div className="relative z-10">
           <div className="p-4 flex justify-between items-center border-b border-gray-700">

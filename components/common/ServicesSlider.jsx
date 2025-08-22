@@ -1,14 +1,14 @@
-'use client';
+"use client";
 import React, { useEffect, useState } from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import Image from "next/image";
 
 // Custom slider component
-export default function ServicesSlider({ logos = [] }) {
+export default function ServicesSlider({ logos, lng }) {
   // Ensure logos is an array and has content
   const logoList = Array.isArray(logos) ? logos : [];
-
+  const isRTL = lng === "ar";
   // State to keep track of the current slide index
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -83,14 +83,22 @@ export default function ServicesSlider({ logos = [] }) {
             className="pointer-events-auto flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-full bg-blue-800 text-white shadow-lg hover:scale-110 transition-transform"
             aria-label="Previous slide"
           >
-            <ArrowForwardIosIcon />
+            {isRTL ? (
+              <ArrowForwardIosIcon className="text-sm sm:text-base md:text-lg" />
+            ) : (
+              <ArrowBackIosNewIcon className="text-sm sm:text-base md:text-lg" />
+            )}
           </button>
           <button
             onClick={nextSlide}
             className="pointer-events-auto flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-full bg-blue-800 text-white shadow-lg hover:scale-110 transition-transform"
             aria-label="Next slide"
           >
-            <ArrowBackIosNewIcon />
+            {isRTL ? (
+              <ArrowBackIosNewIcon className="text-sm sm:text-base md:text-lg" />
+            ) : (
+              <ArrowForwardIosIcon className="text-sm sm:text-base md:text-lg" />
+            )}
           </button>
         </div>
       )}
