@@ -4,6 +4,12 @@ import Image from "next/image";
 import { useTranslation } from "@/lib/i18n";
 import { detectLanguage } from "@/lib/language-detector";
 
+export const metadata = {
+  title: "Our Services | Waslah Mi'mar Contracting Company",
+  description:
+    "Discover the full range of engineering and execution services offered by Waslah Mi'mar Contracting Company, including design, supervision, and turnkey project delivery.",
+};
+
 export default async function Services() {
   const lng = await detectLanguage();
   // eslint-disable-next-line react-hooks/rules-of-hooks

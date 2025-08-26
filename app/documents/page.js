@@ -4,7 +4,11 @@ import Image from "next/image";
 import { useTranslation } from "@/lib/i18n";
 import { detectLanguage } from "@/lib/language-detector";
 import DownloadIcon from "@mui/icons-material/Download";
-
+export const metadata = {
+  title: "Documents & Downloads | Waslah Mi'mar Contracting Company",
+  description:
+    "Download important documents, profiles, and certificates from Waslah Mi'mar Contracting Company. Access our resources for your projects.",
+};
 export default async function Documents() {
   const lng = await detectLanguage();
   // eslint-disable-next-line react-hooks/rules-of-hooks

@@ -4,7 +4,11 @@ import Image from "next/image";
 import { useTranslation } from "@/lib/i18n";
 import { detectLanguage } from "@/lib/language-detector";
 import { LocationOn, SquareFoot, Factory } from "@mui/icons-material";
-
+export const metadata = {
+  title: "Our Projects | Waslah Mi'mar Contracting Company",
+  description:
+    "Explore our portfolio of completed industrial, residential, commercial, and warehouse projects. See our expertise and commitment to excellence.",
+};
 export default async function Projects() {
   const lng = await detectLanguage();
   // eslint-disable-next-line react-hooks/rules-of-hooks

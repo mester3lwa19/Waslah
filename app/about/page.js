@@ -5,6 +5,12 @@ import { useTranslation } from "@/lib/i18n";
 import { detectLanguage } from "@/lib/language-detector";
 import SectionHeading from "@/components/common/SectionHeading";
 
+export const metadata = {
+  title: "About Us | Waslah Mi'mar Contracting Company",
+  description:
+    "Learn more about Waslah Mi'mar Contracting Company, our mission, vision, and commitment to quality in engineering and project execution.",
+};
+
 export default async function About() {
   const lng = await detectLanguage();
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -83,7 +89,10 @@ export default async function About() {
 
       <div className="section-bg py-10">
         <div className="container mx-auto flex flex-col items-center">
-          <SectionHeading lng={lng} sectionTitle={t("about.founder")} />
+          <div className="w-full flex justify-start">
+            {" "}
+            <SectionHeading lng={lng} sectionTitle={t("about.founder")} />
+          </div>
 
           <div className="flex flex-col px-6 md:flex-row items-center gap-6 mt-8">
             {/* Founder Image */}

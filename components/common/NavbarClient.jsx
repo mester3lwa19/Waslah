@@ -13,7 +13,7 @@ export default function NavbarClient({ navLinks, lng: initialLng }) {
   const [mounted, setMounted] = useState(false);
   const [lng, setLng] = useState(initialLng);
   // Separate state for the logo source
-  const [logoSrc, setLogoSrc] = useState("/imgs/logoWhite.png");
+  const [logoSrc, setLogoSrc] = useState("/imgs/LogoWhite.png");
 
   // Handle mounting to prevent hydration issues
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function NavbarClient({ navLinks, lng: initialLng }) {
       setScrolled(initialScrolled);
       // Set the initial logo based on the scroll position
       setLogoSrc(
-        initialScrolled ? "/imgs/logoBlue.png" : "/imgs/logoWhite.png"
+        initialScrolled ? "/imgs/LogoBlue.png" : "/imgs/LogoWhite.png"
       );
     }
   }, []);
@@ -37,7 +37,7 @@ export default function NavbarClient({ navLinks, lng: initialLng }) {
       const isScrolled = window.scrollY > 50;
       setScrolled(isScrolled);
       // Update the logo source based on the new scroll state
-      setLogoSrc(isScrolled ? "/imgs/logoBlue.png" : "/imgs/logoWhite.png");
+      setLogoSrc(isScrolled ? "/imgs/LogoBlue.png" : "/imgs/LogoWhite.png");
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -67,7 +67,7 @@ export default function NavbarClient({ navLinks, lng: initialLng }) {
             {/* Logo */}
             <div className="flex-shrink-0 text-lg font-bold">
               <Image
-                src="/imgs/logoWhite.png"
+                src="/imgs/LogoWhite.png"
                 width={100}
                 height={50}
                 alt="Logo"

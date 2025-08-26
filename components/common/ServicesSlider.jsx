@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+
 import Image from "next/image";
 
 // Custom slider component
@@ -82,24 +81,12 @@ export default function ServicesSlider({ logos, lng }) {
             onClick={prevSlide}
             className="pointer-events-auto flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-full bg-blue-800 text-white shadow-lg hover:scale-110 transition-transform"
             aria-label="Previous slide"
-          >
-            {isRTL ? (
-              <ArrowForwardIosIcon className="text-sm sm:text-base md:text-lg" />
-            ) : (
-              <ArrowBackIosNewIcon className="text-sm sm:text-base md:text-lg" />
-            )}
-          </button>
+          ></button>
           <button
             onClick={nextSlide}
             className="pointer-events-auto flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-full bg-blue-800 text-white shadow-lg hover:scale-110 transition-transform"
             aria-label="Next slide"
-          >
-            {isRTL ? (
-              <ArrowBackIosNewIcon className="text-sm sm:text-base md:text-lg" />
-            ) : (
-              <ArrowForwardIosIcon className="text-sm sm:text-base md:text-lg" />
-            )}
-          </button>
+          ></button>
         </div>
       )}
     </div>

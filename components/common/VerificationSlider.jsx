@@ -2,8 +2,7 @@
 
 "use client";
 import React, { useEffect, useState } from "react";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+
 import Image from "next/image";
 
 export default function VerificationSlider({ logos, lng }) {
@@ -61,26 +60,14 @@ export default function VerificationSlider({ logos, lng }) {
           onClick={prevSlide}
           className="pointer-events-auto flex items-center justify-center h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 transform rounded-full bg-blue-800 text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 z-10"
           aria-label={isRTL ? "Next slide" : "Previous slide"}
-        >
-          {isRTL ? (
-            <ArrowForwardIosIcon className="text-sm sm:text-base md:text-lg" />
-          ) : (
-            <ArrowBackIosNewIcon className="text-sm sm:text-base md:text-lg" />
-          )}
-        </button>
+        ></button>
 
         {/* Next button */}
         <button
           onClick={nextSlide}
           className="pointer-events-auto flex items-center justify-center h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 transform rounded-full bg-blue-800 text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 z-10"
           aria-label={isRTL ? "Previous slide" : "Next slide"}
-        >
-          {isRTL ? (
-            <ArrowBackIosNewIcon className="text-sm sm:text-base md:text-lg" />
-          ) : (
-            <ArrowForwardIosIcon className="text-sm sm:text-base md:text-lg" />
-          )}
-        </button>
+        ></button>
       </div>
     </div>
   );

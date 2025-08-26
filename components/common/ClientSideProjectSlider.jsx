@@ -142,22 +142,6 @@ export default function ClientSideProjectSlider({ projects, lng }) {
             </SwiperSlide>
           ))}
         </Swiper>
-        <button
-          className={`swiper-button-prev-${lng} absolute top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-amber-600 text-white rounded-full font-bold hover:bg-amber-700 transition-all duration-300 hover:scale-110 shadow-lg flex items-center justify-center ${
-            isRTL ? "right-2 sm:right-4" : "left-2 sm:left-4"
-          }`}
-          aria-label={isRTL ? "Next slide" : "Previous slide"}
-        >
-          <span className="text-lg leading-none">{isRTL ? "→" : "←"}</span>
-        </button>
-        <button
-          className={`swiper-button-next-${lng} absolute top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-amber-600 text-white rounded-full font-bold hover:bg-amber-700 transition-all duration-300 hover:scale-110 shadow-lg flex items-center justify-center ${
-            isRTL ? "left-2 sm:left-4" : "right-2 sm:right-4"
-          }`}
-          aria-label={isRTL ? "Previous slide" : "Next slide"}
-        >
-          <span className="text-lg leading-none">{isRTL ? "←" : "→"}</span>
-        </button>
       </div>
     </>
   );

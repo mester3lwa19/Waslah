@@ -1,7 +1,5 @@
 // components/ProjectsSlider.jsx
 import React from "react";
-import Image from "next/image";
-import { LocationOn, SquareFoot, Factory } from "@mui/icons-material";
 import { useTranslation } from "@/lib/i18n"; // Use the server-side hook
 import { detectLanguage } from "@/lib/language-detector"; // Use the server-side language detector
 
