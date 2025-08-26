@@ -53,22 +53,6 @@ export default function VerificationSlider({ logos, lng }) {
           </div>
         ))}
       </div>
-
-      <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between pointer-events-none px-2 sm:px-3">
-        {/* Previous button */}
-        <button
-          onClick={prevSlide}
-          className="pointer-events-auto flex items-center justify-center h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 transform rounded-full bg-blue-800 text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 z-10"
-          aria-label={isRTL ? "Next slide" : "Previous slide"}
-        ></button>
-
-        {/* Next button */}
-        <button
-          onClick={nextSlide}
-          className="pointer-events-auto flex items-center justify-center h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 transform rounded-full bg-blue-800 text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 z-10"
-          aria-label={isRTL ? "Previous slide" : "Next slide"}
-        ></button>
-      </div>
     </div>
   );
 }

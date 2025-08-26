@@ -73,22 +73,6 @@ export default function ServicesSlider({ logos, lng }) {
           </div>
         ))}
       </div>
-
-      {/* Navigation buttons - only show if more than 1 slide */}
-      {logoList.length > 1 && (
-        <div className="absolute inset-y-0 left-0 right-0 flex items-center justify-between px-4 pointer-events-none">
-          <button
-            onClick={prevSlide}
-            className="pointer-events-auto flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-full bg-blue-800 text-white shadow-lg hover:scale-110 transition-transform"
-            aria-label="Previous slide"
-          ></button>
-          <button
-            onClick={nextSlide}
-            className="pointer-events-auto flex items-center justify-center h-10 w-10 md:h-12 md:w-12 rounded-full bg-blue-800 text-white shadow-lg hover:scale-110 transition-transform"
-            aria-label="Next slide"
-          ></button>
-        </div>
-      )}
     </div>
   );
 }
