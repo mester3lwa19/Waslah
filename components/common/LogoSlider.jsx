@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React from "react";
 
 const LogoSlider = () => {
@@ -9,6 +9,7 @@ const LogoSlider = () => {
     { src: "/logos/Bawazir.svg", alt: "Bawazir" },
     { src: "/logos/Etoile.svg", alt: "Etoile" },
     { src: "/logos/Omsteel.svg", alt: "Omsteel" },
+    { src: "/logos/Alvhkd.svg", alt: "alvhkd" },
   ];
 
   return (
@@ -28,16 +29,16 @@ const LogoSlider = () => {
         {logos.map((logo, index) => (
           <img
             key={index}
-            className="logo-slider-item transition-all duration-500 ease-in-out w-4300px] h-[120px] rounded-md absolute object-contain p-4 group-hover:animation-pause"
+            className="logo-slider-item transition-all duration-500 ease-in-out w-4300px] h-[120px] rounded-md  absolute object-contain p-4 group-hover:animation-pause"
             src={logo.src}
             alt={logo.alt}
             style={{
-              left: "max(calc(200px * 6), 100%)",
+              left: "max(calc(200px * 7), 100%)",
               animationName: "scrollLeft",
-              animationDuration: "35s",
+              animationDuration: "40s",
               animationTimingFunction: "linear",
               animationIterationCount: "infinite",
-              animationDelay: `calc(35s / 6 * (6 - ${index + 1}) * -1)`,
+              animationDelay: `calc(40s / 7 * (7 - ${index + 1}) * -1)`,
             }}
             onError={(e) => {
               e.target.style.display = "none";

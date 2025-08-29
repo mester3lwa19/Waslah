@@ -44,7 +44,7 @@ export default async function About() {
         </div>
       </div>
 
-      <div className="py-10">
+      <div className="py-10 container mx-auto">
         <div className="container mx-auto flex flex-col p-6">
           <div className="flex items-center">
             <p className="text-dark-blue-800 text-2xl">
@@ -89,7 +89,7 @@ export default async function About() {
 
       <div className="section-bg py-10">
         <div className="container mx-auto flex flex-col items-center">
-          <div className="w-full flex justify-start">
+          <div className="w-full flex justify-center md:justify-start">
             {" "}
             <SectionHeading lng={lng} sectionTitle={t("about.founder")} />
           </div>

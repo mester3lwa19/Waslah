@@ -18,7 +18,7 @@ export default function FooterClient({ footerData, lng }) {
       <div className="flex flex-col container mx-auto px-4">
         {/* Top Details */}
         <div className="details flex flex-col lg:flex-row lg:justify-between lg:items-center w-full gap-6">
-          <Image src="/imgs/logoWhite.png" width={100} height={50} alt="Logo" />
+          <Image src="/imgs/LogoWhite.png" width={100} height={50} alt="Logo" />
 
           <div className="details-items grid grid-cols-1 sm:grid-cols-2 lg:flex lg:gap-10 gap-6">
             <div className="detail-item flex flex-col gap-2">

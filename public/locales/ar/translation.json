@@ -125,6 +125,16 @@
       "type": "مجمع مستودعات",
       "delivery": "تسليم على المفتاح",
       "logo": "/logos/Almoases.svg"
+    },
+    {
+      "src": "/projects/Alvhkd.jpg",
+      "alt": "Alvhkd",
+      "title": "مجموعة من المتاجر والمطاعم والمقاهي والترفيه",
+      "location": "مدينة الرياض",
+      "size": "4200 م²",
+      "type": "مجمع تجاري",
+      "delivery": "تسليم على المفتاح",
+      "logo": "/logos/Alvhkd.svg"
     }
   ],
   "services": {

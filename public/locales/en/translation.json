@@ -125,7 +125,17 @@
       "type": "Warehouse Complex",
       "delivery": "Turnkey Delivery",
       "logo": "/logos/Almoases.svg"
-    }
+    },
+    {
+  "src": "/projects/Alvhkd.jpg",
+  "alt": "Alvhkd",
+  "title": "A group of shops, restaurants, cafes, and entertainment",
+  "location": "Riyadh City",
+  "size": "4200 m²",
+  "type": "Commercial complex",
+  "delivery": "Turnkey delivery",
+  "logo": "/logos/Alvhkd.svg"
+}
   ],
   "services": {
     "title": "Our Services",
