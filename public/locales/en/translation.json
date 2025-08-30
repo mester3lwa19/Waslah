@@ -127,15 +127,45 @@
       "logo": "/logos/Almoases.svg"
     },
     {
-  "src": "/projects/Alvhkd.jpg",
-  "alt": "Alvhkd",
-  "title": "A group of shops, restaurants, cafes, and entertainment",
-  "location": "Riyadh City",
-  "size": "4200 m²",
-  "type": "Commercial complex",
-  "delivery": "Turnkey delivery",
-  "logo": "/logos/Alvhkd.svg"
-}
+      "src": "/projects/Alvhkd.jpg",
+      "alt": "Alvhkd",
+      "title": "A group of shops, restaurants, cafes, and entertainment",
+      "location": "Riyadh City",
+      "size": "4200 m²",
+      "type": "Commercial complex",
+      "delivery": "Turnkey delivery",
+      "logo": "/logos/Alvhkd.svg"
+    },
+    {
+      "src": "/projects/BPro.jpg",
+      "alt": "BPro",
+      "title": "Residential building consisting of 4 floors with a total built-up area of four floors",
+      "location": "Industrial Gate City - Riyadh",
+      "size": "578 m²",
+      "type": "Residential building",
+      "delivery": "Turnkey delivery",
+      "logo": "/logos/BPro.png"
+    },
+    {
+      "src": "/projects/AlTaj.png",
+      "alt": "AlTaj",
+      "title": "Administrative building consisting of 2 floors, a production hall, and a storage area",
+      "location": "Industrial Gate City - Riyadh",
+      "size": "5000 m²",
+      "type": "Factory",
+      "delivery": "Turnkey delivery",
+      "logo": "/logos/AlTaj.png"
+    },
+    {
+      "src": "/projects/Sama.png",
+      "alt": "Sama",
+      "title": "Administrative building consisting of ground floor, first floor, and a factory",
+      "location": "Industrial Gate City - Riyadh",
+      "size": "9800 m²",
+      "type": "Factory",
+      "delivery": "Turnkey delivery",
+      "logo": "/logos/Sama.png"
+    }
   ],
   "services": {
     "title": "Our Services",
