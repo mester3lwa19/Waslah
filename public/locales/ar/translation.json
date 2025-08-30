@@ -130,11 +130,41 @@
       "src": "/projects/Alvhkd.jpg",
       "alt": "Alvhkd",
       "title": "مجموعة من المتاجر والمطاعم والمقاهي والترفيه",
-      "location": "مدينة الرياض",
+      "location": "مدينة البوابة الصناعية - الرياض",
       "size": "4200 م²",
       "type": "مجمع تجاري",
       "delivery": "تسليم على المفتاح",
       "logo": "/logos/Alvhkd.svg"
+    },
+    {
+      "src": "/projects/BPro.jpg",
+      "alt": "BPro",
+      "title": "عمارة سكنية مكونة من 4 طوابق بمسطح اربع طوابق",
+      "location": "مدينة البوابة الصناعية - الرياض",
+      "size": "578 م²",
+      "type": "عمارة سكنية",
+      "delivery": "تسليم علي المفتاح",
+      "logo": "/logos/BPro.png"
+    },
+    {
+      "src": "/projects/AlTaj.png",
+      "alt": "AlTaj",
+      "title": "مبنى اداري مكون من 2 طابق وصالة انتاج زمنطقة تخزين",
+      "location": "مدينة البوابة الصناعية - الرياض",
+      "size": "5000 م²",
+      "type": "مصنفع",
+      "delivery": "تسليم علي المفتاح",
+      "logo": "/logos/AlTaj.png"
+    },
+    {
+      "src": "/projects/Sama.png",
+      "alt": "Sama",
+      "title":"مبنى اداري مكون من طابق ارضي واول ومصنع",
+      "location": "مدينة البوابة الصناعية - الرياض",
+      "size": "9800 م²",
+      "type": "مصنفع",
+      "delivery": "تسليم علي المفتاح",
+      "logo": "/logos/Sama.png"
     }
   ],
   "services": {
