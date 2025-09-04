@@ -165,6 +165,26 @@
       "type": "Factory",
       "delivery": "Turnkey delivery",
       "logo": "/logos/Sama.png"
+    },
+    {
+      "src": "/projects/alka2.jpg",
+      "alt": "alka2",
+      "title": "Plastic factory consisting of a ground floor, mezzanine area, and an administrative building of 4 floors",
+      "location": "Al-Bawwabah Industrial City, Riyadh",
+      "size": "21450 m²",
+      "type": "Plastic Factory",
+      "delivery": "Turnkey Delivery",
+      "logo": "/logos/Alka.svg"
+    },
+    {
+      "src": "/projects/Abunayyan.jpg",
+      "alt": "Abunayyan",
+      "title": "Abunayyan Holding Group",
+      "location": "Al-Bawwabah Industrial City, Riyadh",
+      "size": "5000 m²",
+      "type": "Production and Assembly Halls",
+      "delivery": "Turnkey Delivery",
+      "logo": "/logos/Abunayyan.png"
     }
   ],
   "services": {
@@ -212,7 +232,7 @@
       "src": "/imgs/engineeringDesign.svg",
       "alt": "Engineering Design",
       "title": "Engineering Design",
-      "description": "An international technical support office in Cairo, consisting of an engineering team headed by Dr. Mohamed El-Shahat, to prepare design drawings, execution drawings, technical specifications, timelines, and all that is necessary to ensure quality achievement."
+      "description": "An international technical support office in Cairo, consisting of an engineering team headed by Dr. Amr Al-Banna, to prepare design drawings, execution drawings, technical specifications, timelines, and all that is necessary to ensure quality achievement."
     }
   ],
   "documents": {
